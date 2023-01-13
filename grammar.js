@@ -8,7 +8,7 @@ module.exports = grammar({
       parse_tree: $ => choice(
 	  $.token,
 	  // $.adjacent,
-	  $.binary,
+	  // $.binary,
 	  // $.unary,
 	  // $.postfix
 	  $.parentheses,
