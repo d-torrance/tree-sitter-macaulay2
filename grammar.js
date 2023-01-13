@@ -2,40 +2,40 @@ module.exports = grammar({
   name: 'Macaulay2',
 
   rules: {
-      source_file: $ => repeat($.expr),
+      source_file: $ => $.parse_tree,
 
-      expr: $ => choice(
+      // ParseTree union from parse.d
+      parse_tree: $ => choice(
+	  $.token,
+	  // $.adjacent,
 	  $.binary,
-	  $.arrow,
-	  $.empty_parentheses,
+	  // $.unary,
+	  // $.postfix
 	  $.parentheses,
-	  $.while_do,
-	  $.while_list_do,
-	  $.while_list,
-	  $.for,
+	  $.empty_parentheses,
+	  $.if_then,
+	  $.if_then_else,
 	  $.quote,
 	  $.global_quote,
 	  $.thread_quote,
 	  $.local_quote,
-	  $.if_then,
-	  $.if_then_else,
-	  $.try,
-	  $.try_else,
 	  $.try_then_else,
+	  $.try_else,
+	  $.try,
 	  $.catch,
+	  $.while_do,
+	  $.for,
+	  $.while_list,
+	  $.while_list_do,
+	  // $.arrow, (we include this with binary)
 	  $.new,
-
-	  // Token or Adjacent or Binary or Unary or Postfix or
-	  // or dummy );
-
-	  $.boolean
       ),
 
-      // grammar based on parser.d
       binary: $ => choice($.binaryleft, $.binaryright),
 
+      // TODO - how do we deal w/ precedence?
       binaryleft: $ => prec.left(seq(
-	  field('lhs', $.expr),
+	  field('lhs', $.parse_tree),
 	  choice(
 	      // unary binary left
 	      '<<', '-', '+', '*', '#',
@@ -45,27 +45,22 @@ module.exports = grammar({
 	      // nunary binary left
 	      ','
 	  ),
-	  field('ret', $.expr))),
+	  field('rhs', $.parse_tree))),
 
       binaryright: $ => prec.right(seq(
-	  field('lhs', $.expr),
+	  field('lhs', $.parse_tree),
 	  choice(
 	      // unary binary right
 	      '|-', '<===', '<==', '<', '>', '<=', '>=', '?',
 	      // nright
-	      ';'
+	      ';',
 	      // binary right
 	      ':=', '=', '<-', '->', '=>', '>>', '===>', '<==>', '==>', '===',
 	      '==', '=!=', '!=', ':', '\\\\', '\\', '@', 'SPACE',
 	      // binary right word
 	      "or", "xor", "and"
 	  ),
-	  field('ret', $.expr))),
-
-      arrow: $ => prec.right(14, seq(
-	  field('lhs', $.expr),
-	  '->',
-	  field('e', $.expr))),
+	  field('rhs', $.parse_tree))),
 
       empty_parentheses: $ => choice(
 	  seq("[", "]"),
@@ -74,118 +69,123 @@ module.exports = grammar({
 	  seq("{", "}")),
 
       parentheses: $ => choice(
-	  seq("[", field('e', $.expr), "]"),
-	  seq("<|", field('e', $.expr), "|>"),
-	  seq("(", field('e', $.expr), ")"),
-	  seq("{", field('e', $.expr), "}")),
+	  seq("[", field('e', $.parse_tree), "]"),
+	  seq("<|", field('e', $.parse_tree), "|>"),
+	  seq("(", field('e', $.parse_tree), ")"),
+	  seq("{", field('e', $.parse_tree), "}")),
 
       while_do: $ => prec(60, seq(
 	  'while',
-	  field('predicate', $.expr),
+	  field('predicate', $.parse_tree),
 	  'do',
-	  field('do_clause', $.expr))),
+	  field('do_clause', $.parse_tree))),
 
       while_list_do: $ => prec(61, seq(
 	  'while',
-	  field('predicate', $.expr),
+	  field('predicate', $.parse_tree),
 	  'list',
-	  field('list_clause', $.expr),
+	  field('list_clause', $.parse_tree),
 	  'do',
-	  field('do_clause', $.expr))),
+	  field('do_clause', $.parse_tree))),
 
       while_list: $ => prec(60, seq(
 	  'while',
-	  field('predicate', $.expr),
+	  field('predicate', $.parse_tree),
 	  'list',
-	  field('predicate', $.expr))),
+	  field('predicate', $.parse_tree))),
 
       for: $ => prec.right(seq(
 	  'for',
-	  field('var', $.expr),
+	  field('variable', $.parse_tree),
 	  choice(
 	      seq('in',
-		  field('in_clause', $.expr)),
+		  field('in_clause', $.parse_tree)),
 	      seq(
 		  optional(seq(
 		      'from',
-		      field('from_clause', $.expr))),
+		      field('from_clause', $.parse_tree))),
 		  optional(seq(
 		      'to',
-		      field('to_clause', $.expr))))),
+		      field('to_clause', $.parse_tree))))),
 	  optional(seq(
 	      'when',
-	      field('when_clause', $.expr))),
+	      field('when_clause', $.parse_tree))),
 	  choice(
 	      seq('do',
-		  field('do_clause', $.expr)),
+		  field('do_clause', $.parse_tree)),
 	      seq('list',
-		  field('list_clause', $.expr),
+		  field('list_clause', $.parse_tree),
 		  optional(seq(
 		      'do',
-		      field('do_clause', $.expr))))))),
+		      field('do_clause', $.parse_tree))))))),
 
       quote: $ => prec(60, seq(
 	  'symbol',
-	  field('arg', $.expr))),
+	  field('rhs', $.parse_tree))),
 
       global_quote: $ => prec(60, seq(
 	  'global',
-	  field('arg', $.expr))),
+	  field('rhs', $.parse_tree))),
 
       thread_quote: $ => prec(60, seq(
 	  'threadVariable',
-	  field('arg', $.expr))),
+	  field('rhs', $.parse_tree))),
 
       local_quote: $ => prec(60, seq(
 	  'local',
-	  field('arg', $.expr))),
+	  field('rhs', $.parse_tree))),
 
       if_then: $ => prec.right(60, seq(
 	  'if',
-	  field('predicate', $.expr),
+	  field('predicate', $.parse_tree),
 	  'then',
-	  field('then_clause', $.expr))),
+	  field('then_clause', $.parse_tree))),
 
       if_then_else: $ => prec(60, seq(
 	  'if',
-	  field('predicate', $.expr),
+	  field('predicate', $.parse_tree),
 	  'then',
-	  field('then_clause', $.expr),
+	  field('then_clause', $.parse_tree),
 	  'else',
-	  field('else_clause', $.expr))),
+	  field('else_clause', $.parse_tree))),
 
       try: $ => prec.right(60, seq(
 	  'try',
-	  field('primary', $.expr))),
+	  field('primary', $.parse_tree))),
 
       try_else: $ => prec(60, seq(
 	  'try',
-	  field('primary', $.expr),
+	  field('primary', $.parse_tree),
 	  'else',
-	  field('else_clause', $.expr))),
+	  field('else_clause', $.parse_tree))),
 
       try_then_else: $ => prec(60, seq(
 	  'try',
-	  field('primary', $.expr),
+	  field('primary', $.parse_tree),
 	  'then',
-	  field('then_clause', $.expr),
+	  field('then_clause', $.parse_tree),
 	  'else',
-	  field('else_clause', $.expr))),
+	  field('else_clause', $.parse_tree))),
 
-      catch: $ => prec(60, seq(
+      catch: $ => seq(
 	  'catch',
-	  field('primary', $.expr))),
+	  field('primary', $.parse_tree)),
 
       new: $ => prec.right(seq(
 	  'new',
-	  field('newclass', $.expr),
+	  field('newclass', $.parse_tree),
 	  optional(seq(
 	      'of',
-	      field('newparent', $.expr))),
+	      field('newparent', $.parse_tree))),
 	  optional(seq(
 	      'from',
-	      field('newinitializer', $.expr))))),
+	      field('newinitializer', $.parse_tree))))),
 
-      boolean: $ => choice('true', 'false')
+      token: $ => choice(
+	  $.word
+      ),
+
+      // TODO: need to deal with other utf8 chars
+      word: $ => /[a-zA-Z][a-zA-Z\d\']*/
   }
 });
