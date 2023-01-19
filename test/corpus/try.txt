@@ -1,0 +1,100 @@
+===
+try
+===
+
+try x
+
+---
+
+(source_file
+ (parse_tree
+  (try
+   (parse_tree
+    (token
+     (word))))))
+
+========
+try-else
+========
+
+try x else y
+
+(source_file
+ (parse_tree
+  (try_else
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+=============
+try-then-else
+=============
+
+try x then y else z
+
+---
+
+(source_file
+ (parse_tree
+  (try_then_else
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+===================
+right associativity
+===================
+
+try try x then y else z
+
+---
+
+(source_file
+ (parse_tree
+  (try
+   (parse_tree
+    (try_then_else
+     (parse_tree
+      (token
+       (word)))
+     (parse_tree
+      (token
+       (word)))
+     (parse_tree
+      (token
+       (word))))))))
+
+=========
+try w/ if
+=========
+
+if try x then y else z then y
+
+---
+
+(source_file
+ (parse_tree
+  (if_then
+   (parse_tree
+    (try_then_else
+     (parse_tree
+      (token
+       (word)))
+     (parse_tree
+      (token
+       (word)))
+     (parse_tree
+      (token
+       (word)))))
+   (parse_tree
+    (token
+     (word))))))
