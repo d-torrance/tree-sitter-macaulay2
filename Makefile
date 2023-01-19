@@ -10,4 +10,10 @@ check:
 ./node_modules/.bin/tree-sitter:
 	npm install
 
+clean:
+	rm -rf Cargo.toml binding.gyp bindings src
+
+distclean: clean
+	rm -rf node_modules package-lock.json
+
 .PHONY: all check
