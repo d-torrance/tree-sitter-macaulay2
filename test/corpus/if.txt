@@ -1,0 +1,64 @@
+=======
+if-then
+=======
+
+if x then y
+
+---
+
+(source_file
+ (parse_tree
+  (if_then
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+============
+if-then-else
+============
+
+if x then y else z
+
+---
+
+(source_file
+ (parse_tree
+  (if_then_else
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+=============
+dangling else
+=============
+
+if x then if y then z else w
+
+---
+
+(source_file
+ (parse_tree
+  (if_then
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (if_then_else
+     (parse_tree
+      (token
+       (word)))
+     (parse_tree
+      (token
+       (word)))
+     (parse_tree
+      (token
+       (word))))))))
