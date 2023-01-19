@@ -9,3 +9,5 @@ check:
 
 ./node_modules/.bin/tree-sitter:
 	npm install
+
+.PHONY: all check
