@@ -1,0 +1,94 @@
+===
+new
+===
+
+new x
+
+---
+
+(source_file
+ (parse_tree
+  (new
+   (parse_tree
+    (token
+     (word))))))
+
+======
+new-of
+======
+
+new x of y
+
+---
+
+(source_file
+ (parse_tree
+  (new
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+========
+new-from
+========
+
+new x from y
+
+---
+
+(source_file
+ (parse_tree
+  (new
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+===========
+new-of-from
+===========
+
+new x of y from z
+
+---
+
+(source_file
+ (parse_tree
+  (new
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+====================
+new-from v. for-from
+====================
+
+for new x from y do w
+
+---
+
+(source_file
+ (parse_tree
+  (for
+   (parse_tree
+    (new
+     (parse_tree
+      (token
+       (word)))
+     (parse_tree
+      (token
+       (word)))))
+   (parse_tree
+    (token
+     (word))))))
