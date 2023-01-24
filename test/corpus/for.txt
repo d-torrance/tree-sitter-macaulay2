@@ -1,0 +1,127 @@
+TODO:
+* for-in-*, for-from-*, for-to-*, and for-from-to-*
+* conflict w/ while-do (right associativity)
+
+======
+for-do
+======
+
+for x do y
+
+---
+
+(source_file
+ (parse_tree
+  (for
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+========
+for-list
+========
+
+for x list y
+
+---
+
+(source_file
+ (parse_tree
+  (for
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+===========
+for-list-do
+===========
+
+for x list y do z
+
+---
+
+(source_file
+ (parse_tree
+  (for
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+===========
+for-when-do
+===========
+
+for x when y do z
+
+---
+
+(source_file
+ (parse_tree
+  (for
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+=============
+for-when-list
+=============
+
+for x when y list z
+
+---
+
+(source_file
+ (parse_tree
+  (for
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
+
+
+================
+for-when-list-do
+================
+
+for x when y list z do w
+
+---
+
+(source_file
+ (parse_tree
+  (for
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word)))
+   (parse_tree
+    (token
+     (word))))))
