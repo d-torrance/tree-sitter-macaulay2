@@ -16,5 +16,5 @@
   },
   "tree-sitter": [
     {"file-types": ["m2"]}
-  ] '
+  ]
 }
