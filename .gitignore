@@ -2,5 +2,6 @@
 Cargo.toml
 binding.gyp
 bindings
+build
 node_modules
 src
