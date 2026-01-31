@@ -130,21 +130,21 @@ module.exports = grammar({
 		      'do',
 		      field('do_clause', $.parse_tree))))))),
 
-      quote: $ => prec(60, seq(
+      quote: $ => seq(
 	  'symbol',
-	  field('rhs', $.parse_tree))),
+	  field('rhs', $.identifier)),
 
-      global_quote: $ => prec(60, seq(
+      global_quote: $ => seq(
 	  'global',
-	  field('rhs', $.parse_tree))),
+	  field('rhs', $.identifier)),
 
-      thread_quote: $ => prec(60, seq(
-	  'threadVariable',
-	  field('rhs', $.parse_tree))),
+      thread_quote: $ => seq(
+	  choice("threadLocal", "threadVariable"),
+	  field('rhs', $.identifier)),
 
-      local_quote: $ => prec(60, seq(
+      local_quote: $ => seq(
 	  'local',
-	  field('rhs', $.parse_tree))),
+	  field('rhs', $.identifier)),
 
       if_then: $ => seq(
 	  'if',
