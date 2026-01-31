@@ -7,7 +7,8 @@
     "build": "tree-sitter generate",
     "test": "tree-sitter test",
     "format": "prettier -w .",
-    "lint": "prettylint ."
+    "lint": "prettylint .",
+    "update-operators": "M2 --script get-operators.m2"
   },
   "author": "",
   "license": "MIT",
