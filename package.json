@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tree-sitter generate",
     "test": "tree-sitter test",
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "lint": "prettylint ."
   },
   "author": "",
   "license": "MIT",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "prettier": "^3.8.1",
+    "prettylint": "^2.0.0",
     "tree-sitter-cli": "^0.26.3"
   },
   "tree-sitter": [
