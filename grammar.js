@@ -1,3 +1,5 @@
+operator_info = require("./operator-info.json")
+
 module.exports = grammar({
   name: 'Macaulay2',
 
