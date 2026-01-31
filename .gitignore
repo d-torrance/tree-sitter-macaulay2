@@ -3,5 +3,4 @@ Cargo.toml
 binding.gyp
 bindings
 node_modules
-package-lock.json
 src
