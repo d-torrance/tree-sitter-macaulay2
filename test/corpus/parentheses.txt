@@ -1,0 +1,108 @@
+=================
+empty parentheses
+=================
+
+()
+
+---
+
+(source_file
+  (parse_tree
+    (empty_parentheses)))
+
+==============
+empty brackets
+==============
+
+[]
+
+---
+
+(source_file
+  (parse_tree
+    (empty_parentheses)))
+
+============
+empty braces
+============
+
+{}
+
+---
+
+(source_file
+  (parse_tree
+    (empty_parentheses)))
+
+
+=====================
+empty angled brackets
+=====================
+
+<||>
+
+---
+
+(source_file
+  (parse_tree
+    (empty_parentheses)))
+
+===========
+parentheses
+===========
+
+(x)
+
+---
+
+(source_file
+  (parse_tree
+    (parentheses
+      (parse_tree
+        (token
+          (word))))))
+
+========
+brackets
+========
+
+[x]
+
+---
+
+(source_file
+  (parse_tree
+    (parentheses
+      (parse_tree
+        (token
+          (word))))))
+
+======
+braces
+======
+
+{x}
+
+---
+
+(source_file
+  (parse_tree
+    (parentheses
+      (parse_tree
+        (token
+          (word))))))
+
+===============
+angled brackets
+===============
+
+<|x|>
+
+---
+
+(source_file
+  (parse_tree
+    (parentheses
+      (parse_tree
+        (token
+          (word))))))

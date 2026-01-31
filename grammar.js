@@ -63,16 +63,24 @@ module.exports = grammar({
 	  field('rhs', $.parse_tree))),
 
       empty_parentheses: $ => choice(
-	  seq("[", "]"),
-	  seq("<|", "|>"),
-	  seq("(", ")"),
-	  seq("{", "}")),
+	  seq(field("left", "["),  field("right", "]")),
+	  seq(field("left", "<|"), field("right", "|>")),
+	  seq(field("left", "("),  field("right", ")")),
+	  seq(field("left", "{"),  field("right", "}"))),
 
       parentheses: $ => choice(
-	  seq("[",  field('contents', $.parse_tree), "]"),
-	  seq("<|", field('contents', $.parse_tree), "|>"),
-	  seq("(",  field('contents', $.parse_tree), ")"),
-	  seq("{",  field('contents', $.parse_tree), "}")),
+	  seq(field("left", "["),
+	      field("contents", $.parse_tree),
+	      field("right", "]")),
+	  seq(field("left", "<|"),
+	      field("contents", $.parse_tree),
+	      field("right", "|>")),
+	  seq(field("left", "("),
+	      field("contents", $.parse_tree),
+	      field("right", ")")),
+	  seq(field("left", "{"),
+	      field("contents", $.parse_tree),
+	      field("right", "}"))),
 
       while_do: $ => seq(
 	  'while',
