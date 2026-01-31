@@ -32,7 +32,7 @@ module.exports = grammar({
 	  $.for,
 	  $.while_list,
 	  $.while_list_do,
-	  // $.arrow, (we include this with binary)
+	  $.arrow,
 	  $.new,
       ),
 
@@ -45,6 +45,11 @@ module.exports = grammar({
 	  field("rhs", choice($.token,
 			      $.parentheses,
 			      $.empty_parentheses)))),
+
+      arrow: $ => prec.right(operator_info.arrow, seq(
+	  field("lhs", $.parse_tree),
+	  "->",
+	  field("rhs", $.parse_tree))),
 
       binary: $ => choice($.binary_left, $.binary_right),
 
