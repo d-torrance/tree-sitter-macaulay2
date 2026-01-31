@@ -7,8 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
+      - name: Install dependencies
+        run: npm clean-install
+      - name: Lint
+        run: npm run lint
       - name: Build
-        run: make
+        run: npm run build
       - name: Test
-        run: make check
+        run: npm run test
