@@ -9,9 +9,7 @@ f x
 (source_file
   (parse_tree
     (adjacent
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier))))))
+      (token
+        (identifier))
+      (token
+        (identifier)))))

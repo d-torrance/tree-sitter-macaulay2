@@ -36,6 +36,7 @@ keywords = unique select(values Core.Dictionary,
 parsingInfo = hashTable apply(keywords, k -> (k, getParsing k))
 
 operatorInfo = hashTable {
+    ("adjacent", (getParsing symbol SPACE)#1),
     ("binary_right", hashTable apply(
 	    select(keys parsingInfo, k -> (
 		    parsingInfo#k#0 == parsingInfo#k#1 + 1)),

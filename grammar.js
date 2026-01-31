@@ -10,7 +10,7 @@ module.exports = grammar({
       parse_tree: $ => choice(
 	  $.token,
 	  $.adjacent,
-	  // $.binary,
+	  $.binary,
 	  $.unary,
 	  $.postfix,
 	  $.parentheses,
@@ -36,40 +36,31 @@ module.exports = grammar({
 	  $.new,
       ),
 
-      adjacent: $ => prec.right(3, seq(
-	  field("lhs", $.parse_tree),
-	  field("rhs", $.parse_tree))),
+      // TODO: more cases to consider, e.g.,
+      // "x not y" => (adjacent (token x) (unary (token not) (token y)))
+      adjacent: $ => prec.right(operator_info.adjacent, seq(
+	  field("lhs", choice($.token,
+			      $.parentheses,
+			      $.empty_parentheses)),
+	  field("rhs", choice($.token,
+			      $.parentheses,
+			      $.empty_parentheses)))),
 
-      binary: $ => choice($.binaryleft, $.binaryright),
+      binary: $ => choice($.binary_left, $.binary_right),
 
-      // TODO - how do we deal w/ precedence?
-      binaryleft: $ => prec.left(seq(
-	  field('lhs', $.parse_tree),
-	  choice(
-	      // unary binary left
-	      '<<', '-', '+', '*', '#',
-	      // binary left
-	      '||', '|', '^^', '&', '..', '..<', '++', '**', '/', '%','//',
-	      '@@', '^', '^**', '_', '#?', '.', '.?',
-	      // nunary binary left
-	      ','
-	  ),
-	  field('rhs', $.parse_tree))),
+      binary_left: $ => choice(
+	  ...Object.entries(operator_info.binary_left).map(([op, p]) =>
+	      prec.left(p, seq(
+		  field("lhs", $.parse_tree),
+		  field("operator", op),
+		  field("rhs", $.parse_tree))))),
 
-      binaryright: $ => prec.right(seq(
-	  field('lhs', $.parse_tree),
-	  choice(
-	      // unary binary right
-	      '|-', '<===', '<==', '<', '>', '<=', '>=', '?',
-	      // nright
-	      ';',
-	      // binary right
-	      ':=', '=', '<-', '->', '=>', '>>', '===>', '<==>', '==>', '===',
-	      '==', '=!=', '!=', ':', '\\\\', '\\', '@', 'SPACE',
-	      // binary right word
-	      "or", "xor", "and"
-	  ),
-	  field('rhs', $.parse_tree))),
+      binary_right: $ => choice(
+	  ...Object.entries(operator_info.binary_right).map(([op, p]) =>
+	      prec.right(p, seq(
+		  field("lhs", $.parse_tree),
+		  field("operator", op),
+		  field("rhs", $.parse_tree))))),
 
       unary: $ => choice(
 	  ...Object.entries(operator_info.unary).map(([op, p]) =>
