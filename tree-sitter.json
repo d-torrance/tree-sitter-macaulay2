@@ -6,9 +6,7 @@
       "camelcase": "Macaulay2",
       "title": "Macaulay2",
       "scope": "source.macaulay2",
-      "file-types": [
-        "m2"
-      ],
+      "file-types": ["m2"],
       "injection-regex": "^macaulay2$",
       "class-name": "TreeSitterMacaulay2"
     }

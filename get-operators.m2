@@ -56,4 +56,4 @@ operatorInfo = hashTable {
 	    k -> (k, parsingInfo#k#0)))}
 
 f = openOut "operator-info.json"
-f << toJSON(operatorInfo, Indent => 2, Sort => true) << close
+f << toJSON(operatorInfo, Indent => 2, Sort => true) << endl << close

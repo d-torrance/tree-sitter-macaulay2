@@ -5,7 +5,8 @@
   "main": "bindings/node",
   "scripts": {
     "build": "tree-sitter generate",
-    "test": "tree-sitter test"
+    "test": "tree-sitter test",
+    "format": "prettier -w ."
   },
   "author": "",
   "license": "MIT",
@@ -13,9 +14,14 @@
     "nan": "^2.17.0"
   },
   "devDependencies": {
+    "prettier": "^3.8.1",
     "tree-sitter-cli": "^0.26.3"
   },
   "tree-sitter": [
-    {"file-types": ["m2"]}
+    {
+      "file-types": [
+        "m2"
+      ]
+    }
   ]
 }
