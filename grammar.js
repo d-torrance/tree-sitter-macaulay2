@@ -19,7 +19,10 @@ module.exports = grammar({
 	  $.global_quote,
 	  $.thread_quote,
 	  $.local_quote,
+	  $.try_do,
+	  $.try_then_do,
 	  $.try_then_else,
+	  $.try_then,
 	  $.try_else,
 	  $.try,
 	  $.catch,
@@ -143,13 +146,13 @@ module.exports = grammar({
 	  'local',
 	  field('rhs', $.parse_tree))),
 
-      if_then: $ => prec.right(60, seq(
+      if_then: $ => seq(
 	  'if',
 	  field('predicate', $.parse_tree),
 	  'then',
-	  field('then_clause', $.parse_tree))),
+	  field('then_clause', $.parse_tree)),
 
-      if_then_else: $ => prec(60, seq(
+      if_then_else: $ => prec(1, seq(
 	  'if',
 	  field('predicate', $.parse_tree),
 	  'then',
@@ -157,23 +160,47 @@ module.exports = grammar({
 	  'else',
 	  field('else_clause', $.parse_tree))),
 
-      try: $ => prec.right(60, seq(
+      try: $ => seq(
 	  'try',
-	  field('primary', $.parse_tree))),
+	  field('primary', $.parse_tree)),
 
-      try_else: $ => prec(60, seq(
+      try_then: $ => prec(1, seq(
+	  "try",
+	  field("primary", $.parse_tree),
+	  "then",
+	  field("sequel", $.parse_tree))),
+
+      try_else: $ => prec(1, seq(
 	  'try',
 	  field('primary', $.parse_tree),
 	  'else',
-	  field('else_clause', $.parse_tree))),
+	  field('alternate', $.parse_tree))),
 
-      try_then_else: $ => prec(60, seq(
+      try_then_else: $ => prec(2, seq(
 	  'try',
 	  field('primary', $.parse_tree),
 	  'then',
-	  field('then_clause', $.parse_tree),
+	  field('sequel', $.parse_tree),
 	  'else',
-	  field('else_clause', $.parse_tree))),
+	  field('alternate', $.parse_tree))),
+
+      try_do: $ => prec(1, seq(
+	  "try",
+	  field("primary", $.parse_tree),
+	  "except",
+	  field("variable", $.parse_tree),
+	  "do",
+	  field("do_clause", $.parse_tree))),
+
+      try_then_do: $ => prec(2, seq(
+	  "try",
+	  field("primary", $.parse_tree),
+	  "then",
+	  field("sequel", $.parse_tree),
+	  "except",
+	  field("variable", $.parse_tree),
+	  "do",
+	  field("do_clause", $.parse_tree))),
 
       catch: $ => seq(
 	  'catch',

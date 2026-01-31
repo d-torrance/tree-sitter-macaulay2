@@ -14,6 +14,24 @@ try x
      (word))))))
 
 ========
+try-then
+========
+
+try x then y
+
+---
+
+(source_file
+  (parse_tree
+    (try_then
+      (parse_tree
+        (token
+          (word)))
+      (parse_tree
+        (token
+          (word))))))
+
+========
 try-else
 ========
 
@@ -50,9 +68,55 @@ try x then y else z
     (token
      (word))))))
 
-===================
-right associativity
-===================
+======
+try-do
+======
+
+try x except y do z
+
+---
+
+(source_file
+  (parse_tree
+    (try_do
+      (parse_tree
+        (token
+          (word)))
+      (parse_tree
+        (token
+          (word)))
+      (parse_tree
+        (token
+          (word))))))
+
+
+===========
+try-then-do
+===========
+
+try x then y except z do w
+
+---
+
+(source_file
+  (parse_tree
+    (try_then_do
+      (parse_tree
+        (token
+          (word)))
+      (parse_tree
+        (token
+          (word)))
+      (parse_tree
+        (token
+          (word)))
+      (parse_tree
+        (token
+          (word))))))
+
+====================
+try w/ try-then-else
+====================
 
 try try x then y else z
 
@@ -73,9 +137,9 @@ try try x then y else z
       (token
        (word))))))))
 
-=========
-try w/ if
-=========
+========================
+if-then w/ try-then-else
+========================
 
 if try x then y else z then y
 
@@ -97,4 +161,93 @@ if try x then y else z then y
        (word)))))
    (parse_tree
     (token
-     (word))))))
+      (word))))))
+
+===============
+try w/ try-else
+===============
+
+try try x else y
+
+---
+
+(source_file
+  (parse_tree
+    (try
+      (parse_tree
+        (try_else
+          (parse_tree
+            (token
+              (word)))
+          (parse_tree
+            (token
+              (word))))))))
+
+=============
+try w/ try-do
+=============
+
+try try x except y do z
+
+---
+
+(source_file
+  (parse_tree
+    (try
+      (parse_tree
+        (try_do
+          (parse_tree
+            (token
+              (word)))
+          (parse_tree
+            (token
+              (word)))
+          (parse_tree
+            (token
+              (word))))))))
+
+===================
+try w/ if-then-else
+===================
+
+try if x then y else z
+
+---
+
+(source_file
+  (parse_tree
+    (try
+      (parse_tree
+        (if_then_else
+          (parse_tree
+            (token
+              (word)))
+          (parse_tree
+            (token
+              (word)))
+          (parse_tree
+            (token
+              (word))))))))
+
+====================
+try w/ try-then-else
+====================
+
+try try x then y else z
+
+---
+
+(source_file
+  (parse_tree
+    (try
+      (parse_tree
+        (try_then_else
+          (parse_tree
+            (token
+              (word)))
+          (parse_tree
+            (token
+              (word)))
+          (parse_tree
+            (token
+              (word))))))))
