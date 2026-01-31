@@ -7,7 +7,7 @@ module.exports = grammar({
       // ParseTree union from parse.d
       parse_tree: $ => choice(
 	  $.token,
-	  // $.adjacent,
+	  $.adjacent,
 	  // $.binary,
 	  // $.unary,
 	  // $.postfix
@@ -33,6 +33,10 @@ module.exports = grammar({
 	  // $.arrow, (we include this with binary)
 	  $.new,
       ),
+
+      adjacent: $ => prec.right(3, seq(
+	  field("lhs", $.parse_tree),
+	  field("rhs", $.parse_tree))),
 
       binary: $ => choice($.binaryleft, $.binaryright),
 
