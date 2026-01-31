@@ -12,7 +12,7 @@ module.exports = grammar({
 	  $.adjacent,
 	  // $.binary,
 	  // $.unary,
-	  // $.postfix
+	  $.postfix,
 	  $.parentheses,
 	  $.empty_parentheses,
 	  $.if_then,
@@ -70,6 +70,12 @@ module.exports = grammar({
 	      "or", "xor", "and"
 	  ),
 	  field('rhs', $.parse_tree))),
+
+      postfix: $ => choice(
+	  ...Object.entries(operator_info.postfix).map(([op, p]) =>
+	      prec.left(p, seq(
+		  field("lhs", $.parse_tree),
+		  field("operator", op))))),
 
       empty_parentheses: $ => choice(
 	  seq(field("left", "["),  field("right", "]")),

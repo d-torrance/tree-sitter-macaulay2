@@ -1,0 +1,142 @@
+=========
+factorial
+=========
+
+x!
+
+---
+
+(source_file
+  (parse_tree
+    (postfix
+      (parse_tree
+        (token
+          (identifier))))))
+
+
+=============
+sum of twists
+=============
+
+x(*)
+
+---
+
+(source_file
+  (parse_tree
+    (postfix
+      (parse_tree
+        (token
+          (identifier))))))
+
+
+============
+upper shriek
+============
+
+x^!
+
+---
+
+(source_file
+  (parse_tree
+    (postfix
+      (parse_tree
+        (token
+          (identifier))))))
+
+
+========
+pullback
+========
+
+x^*
+
+---
+
+(source_file
+  (parse_tree
+    (postfix
+      (parse_tree
+        (token
+          (identifier))))))
+
+
+==============
+sheafification
+==============
+
+x^~
+
+---
+
+(source_file
+  (parse_tree
+    (postfix
+      (parse_tree
+        (token
+          (identifier))))))
+
+
+============
+lower shriek
+============
+
+x_!
+
+---
+
+(source_file
+  (parse_tree
+    (postfix
+      (parse_tree
+        (token
+          (identifier))))))
+
+
+===========
+pushforward
+===========
+
+x_*
+
+---
+
+(source_file
+  (parse_tree
+    (postfix
+      (parse_tree
+        (token
+          (identifier))))))
+
+
+===============
+subscript-tilde
+===============
+
+x_~
+
+---
+
+(source_file
+  (parse_tree
+    (postfix
+      (parse_tree
+        (token
+          (identifier))))))
+
+
+=====
+tilde
+=====
+
+x~
+
+---
+
+(source_file
+  (parse_tree
+    (postfix
+      (parse_tree
+        (token
+          (identifier))))))
