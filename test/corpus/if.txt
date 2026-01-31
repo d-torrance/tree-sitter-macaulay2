@@ -11,10 +11,10 @@ if x then y
   (if_then
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ============
 if-then-else
@@ -29,13 +29,13 @@ if x then y else z
   (if_then_else
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 =============
 dangling else
@@ -50,15 +50,15 @@ if x then if y then z else w
   (if_then
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (if_then_else
      (parse_tree
       (token
-       (word)))
+       (identifier)))
      (parse_tree
       (token
-       (word)))
+       (identifier)))
      (parse_tree
       (token
-       (word))))))))
+       (identifier))))))))

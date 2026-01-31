@@ -11,7 +11,7 @@ try x
   (try
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ========
 try-then
@@ -26,10 +26,10 @@ try x then y
     (try_then
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))
 
 ========
 try-else
@@ -42,10 +42,10 @@ try x else y
   (try_else
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 =============
 try-then-else
@@ -60,13 +60,13 @@ try x then y else z
   (try_then_else
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ======
 try-do
@@ -81,13 +81,13 @@ try x except y do z
     (try_do
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))
 
 
 ===========
@@ -103,16 +103,16 @@ try x then y except z do w
     (try_then_do
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))
 
 ====================
 try w/ try-then-else
@@ -129,13 +129,13 @@ try try x then y else z
     (try_then_else
      (parse_tree
       (token
-       (word)))
+       (identifier)))
      (parse_tree
       (token
-       (word)))
+       (identifier)))
      (parse_tree
       (token
-       (word))))))))
+       (identifier))))))))
 
 ========================
 if-then w/ try-then-else
@@ -152,16 +152,16 @@ if try x then y else z then y
     (try_then_else
      (parse_tree
       (token
-       (word)))
+       (identifier)))
      (parse_tree
       (token
-       (word)))
+       (identifier)))
      (parse_tree
       (token
-       (word)))))
+       (identifier)))))
    (parse_tree
     (token
-      (word))))))
+      (identifier))))))
 
 ===============
 try w/ try-else
@@ -178,10 +178,10 @@ try try x else y
         (try_else
           (parse_tree
             (token
-              (word)))
+              (identifier)))
           (parse_tree
             (token
-              (word))))))))
+              (identifier))))))))
 
 =============
 try w/ try-do
@@ -198,13 +198,13 @@ try try x except y do z
         (try_do
           (parse_tree
             (token
-              (word)))
+              (identifier)))
           (parse_tree
             (token
-              (word)))
+              (identifier)))
           (parse_tree
             (token
-              (word))))))))
+              (identifier))))))))
 
 ===================
 try w/ if-then-else
@@ -221,13 +221,13 @@ try if x then y else z
         (if_then_else
           (parse_tree
             (token
-              (word)))
+              (identifier)))
           (parse_tree
             (token
-              (word)))
+              (identifier)))
           (parse_tree
             (token
-              (word))))))))
+              (identifier))))))))
 
 ====================
 try w/ try-then-else
@@ -244,10 +244,10 @@ try try x then y else z
         (try_then_else
           (parse_tree
             (token
-              (word)))
+              (identifier)))
           (parse_tree
             (token
-              (word)))
+              (identifier)))
           (parse_tree
             (token
-              (word))))))))
+              (identifier))))))))

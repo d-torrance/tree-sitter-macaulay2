@@ -217,10 +217,11 @@ module.exports = grammar({
 	      field('newinitializer', $.parse_tree))))),
 
       token: $ => choice(
-	  $.word
+	  $.identifier, // TCid
+	  // TODO: TCint, TCRR, TCstring
       ),
 
       // TODO: need to deal with other utf8 chars
-      word: $ => /[a-zA-Z][a-zA-Z\d\']*/
+      identifier: $ => /[a-zA-Z][a-zA-Z\d\']*/
   }
 });

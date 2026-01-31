@@ -15,10 +15,10 @@ for x do y
   (for
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ========
 for-list
@@ -33,10 +33,10 @@ for x list y
   (for
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ===========
 for-list-do
@@ -51,13 +51,13 @@ for x list y do z
   (for
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ===========
 for-when-do
@@ -72,13 +72,13 @@ for x when y do z
   (for
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 =============
 for-when-list
@@ -93,13 +93,13 @@ for x when y list z
   (for
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 
 ================
@@ -115,13 +115,13 @@ for x when y list z do w
   (for
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))

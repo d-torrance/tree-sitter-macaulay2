@@ -60,7 +60,7 @@ parentheses
     (parentheses
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))
 
 ========
 brackets
@@ -75,7 +75,7 @@ brackets
     (parentheses
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))
 
 ======
 braces
@@ -90,7 +90,7 @@ braces
     (parentheses
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))
 
 ===============
 angled brackets
@@ -105,4 +105,4 @@ angled brackets
     (parentheses
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))

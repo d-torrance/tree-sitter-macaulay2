@@ -11,10 +11,10 @@ while x do y
     (while_do
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))
 
 ==========
 while-list
@@ -29,10 +29,10 @@ while x list y
     (while_list
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))
 
 
 =============
@@ -48,13 +48,13 @@ while x list y do z
     (while_list_do
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word)))
+          (identifier)))
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))
 
 ===========
 dangling do
@@ -71,13 +71,13 @@ while while x list y do z do w
         (while_list_do
           (parse_tree
             (token
-              (word)))
+              (identifier)))
           (parse_tree
             (token
-              (word)))
+              (identifier)))
           (parse_tree
             (token
-              (word)))))
+              (identifier)))))
       (parse_tree
         (token
-          (word))))))
+          (identifier))))))

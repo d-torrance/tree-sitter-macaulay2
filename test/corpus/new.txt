@@ -11,7 +11,7 @@ new x
   (new
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ======
 new-of
@@ -26,10 +26,10 @@ new x of y
   (new
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ========
 new-from
@@ -44,10 +44,10 @@ new x from y
   (new
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ===========
 new-of-from
@@ -62,13 +62,13 @@ new x of y from z
   (new
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word)))
+     (identifier)))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
 
 ====================
 new-from v. for-from
@@ -85,10 +85,10 @@ for new x from y do w
     (new
      (parse_tree
       (token
-       (word)))
+       (identifier)))
      (parse_tree
       (token
-       (word)))))
+       (identifier)))))
    (parse_tree
     (token
-     (word))))))
+     (identifier))))))
