@@ -1,0 +1,14 @@
+=====
+catch
+=====
+
+catch x
+
+---
+
+(source_file
+  (parse_tree
+    (catch
+      (parse_tree
+        (token
+          (identifier))))))
