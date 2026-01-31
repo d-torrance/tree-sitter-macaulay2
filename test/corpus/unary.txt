@@ -1,0 +1,450 @@
+===========
+unary sharp
+===========
+
+#x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+==========
+unary star
+==========
+
+*x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+==========
+unary plus
+==========
+
++x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+===========
+unary comma
+===========
+
+,x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+===========
+unary minus
+===========
+
+-x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+==========
+unary less
+==========
+
+<x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+===============
+unary less-less
+===============
+
+<<x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+================
+unary less-equal
+================
+
+<=x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+============================
+unary long-double-left-arrow
+============================
+
+<==x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+=================================
+unary long-long-double-left-arrow
+=================================
+
+<===x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+============
+unary greater
+============
+
+>x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+=====================
+unary greater-equal
+=====================
+
+>=x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+==============
+unary question
+==============
+
+?x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+=======================
+unary question-question
+=======================
+
+??x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+===============
+unary deduction
+===============
+
+|-x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+=====
+break
+=====
+
+break x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+==========
+breakpoint
+==========
+
+breakpoint x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+========
+continue
+========
+
+continue x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+===========
+elapsedTime
+===========
+
+elapsedTime x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+=============
+elapsedTiming
+=============
+
+elapsedTiming x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+===
+not
+===
+
+not x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+=======
+profile
+=======
+
+profile x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+======
+return
+======
+
+return x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+======
+shield
+======
+
+shield x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+====
+step
+====
+
+step x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+====
+TEST
+====
+
+TEST x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+=====
+throw
+=====
+
+throw x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+====
+time
+====
+
+time x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+======
+timing
+======
+
+timing x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+
+====
+trap
+====
+
+trap x
+
+---
+
+(source_file
+  (parse_tree
+    (unary
+      (parse_tree
+        (token
+          (identifier))))))
+

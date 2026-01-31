@@ -11,7 +11,7 @@ module.exports = grammar({
 	  $.token,
 	  $.adjacent,
 	  // $.binary,
-	  // $.unary,
+	  $.unary,
 	  $.postfix,
 	  $.parentheses,
 	  $.empty_parentheses,
@@ -70,6 +70,12 @@ module.exports = grammar({
 	      "or", "xor", "and"
 	  ),
 	  field('rhs', $.parse_tree))),
+
+      unary: $ => choice(
+	  ...Object.entries(operator_info.unary).map(([op, p]) =>
+	      prec.right(p, seq(
+		  field("operator", op),
+		  field("rhs", $.parse_tree))))),
 
       postfix: $ => choice(
 	  ...Object.entries(operator_info.postfix).map(([op, p]) =>
