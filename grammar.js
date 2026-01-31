@@ -69,10 +69,10 @@ module.exports = grammar({
 	  seq("{", "}")),
 
       parentheses: $ => choice(
-	  seq("[", field('e', $.parse_tree), "]"),
-	  seq("<|", field('e', $.parse_tree), "|>"),
-	  seq("(", field('e', $.parse_tree), ")"),
-	  seq("{", field('e', $.parse_tree), "}")),
+	  seq("[",  field('contents', $.parse_tree), "]"),
+	  seq("<|", field('contents', $.parse_tree), "|>"),
+	  seq("(",  field('contents', $.parse_tree), ")"),
+	  seq("{",  field('contents', $.parse_tree), "}")),
 
       while_do: $ => prec(60, seq(
 	  'while',
