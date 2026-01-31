@@ -74,13 +74,13 @@ module.exports = grammar({
 	  seq("(",  field('contents', $.parse_tree), ")"),
 	  seq("{",  field('contents', $.parse_tree), "}")),
 
-      while_do: $ => prec(60, seq(
+      while_do: $ => seq(
 	  'while',
 	  field('predicate', $.parse_tree),
 	  'do',
-	  field('do_clause', $.parse_tree))),
+	  field('do_clause', $.parse_tree)),
 
-      while_list_do: $ => prec(61, seq(
+      while_list_do: $ => prec(1, seq(
 	  'while',
 	  field('predicate', $.parse_tree),
 	  'list',
@@ -88,11 +88,11 @@ module.exports = grammar({
 	  'do',
 	  field('do_clause', $.parse_tree))),
 
-      while_list: $ => prec(60, seq(
+      while_list: $ => seq(
 	  'while',
 	  field('predicate', $.parse_tree),
 	  'list',
-	  field('predicate', $.parse_tree))),
+	  field('predicate', $.parse_tree)),
 
       for: $ => prec.right(seq(
 	  'for',
