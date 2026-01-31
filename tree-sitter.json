@@ -1,0 +1,42 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "macaulay2",
+      "camelcase": "Macaulay2",
+      "title": "Macaulay2",
+      "scope": "source.macaulay2",
+      "file-types": [
+        "m2"
+      ],
+      "injection-regex": "^macaulay2$",
+      "class-name": "TreeSitterMacaulay2"
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "Macaulay2 parser",
+    "authors": [
+      {
+        "name": "Doug Torrance",
+        "email": "dtorrance@piedmont.edu",
+        "url": "https://webwork.piedmont.edu/~dtorrance"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/d-torrance/tree-sitter-macaulay2",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": false,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
