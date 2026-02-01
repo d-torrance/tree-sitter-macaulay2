@@ -297,8 +297,8 @@ module.exports = grammar({
         $.identifier, // TCid
         $.string, // TCstring
         $.integer, // TCint
-        // TODO: TCRR
-      ),
+        $.float, // TCRR
+n      ),
 
     // TODO: need to deal with other utf8 chars
     identifier: ($) => /[a-zA-Z][a-zA-Z\d\']*/,
@@ -308,5 +308,7 @@ module.exports = grammar({
 
     integer: ($) =>
       token(choice(/\d+/, /0[bB][01]+/, /0[oO][0-7]+/, /0[xX][0-9a-fA-F]+/)),
+
+    float: ($) => token(/(\d+(\.\d*)?|\.\d+)(p\d+)?([eE][+-]?\d+)?/),
   },
 });

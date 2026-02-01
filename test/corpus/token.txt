@@ -154,3 +154,47 @@ hexadecimal integer (0X)
     (parse_tree
       (token
         (integer)))))
+
+==============
+floating point
+==============
+
+1p53
+1e10
+1.0
+1.0p53
+.25
+.25e-3
+123.45p53E+10
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (float))))
+  (statement
+    (parse_tree
+      (token
+        (float))))
+  (statement
+    (parse_tree
+      (token
+        (float))))
+  (statement
+    (parse_tree
+      (token
+        (float))))
+  (statement
+    (parse_tree
+      (token
+        (float))))
+  (statement
+    (parse_tree
+      (token
+        (float))))
+  (statement
+    (parse_tree
+      (token
+        (float)))))
