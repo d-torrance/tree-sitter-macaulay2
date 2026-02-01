@@ -5,3 +5,4 @@ bindings
 build
 node_modules
 src
+tree-sitter-Macaulay2.wasm
