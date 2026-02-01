@@ -1,0 +1,57 @@
+============
+line comment
+============
+
+x -- comment
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (identifier)))
+    (comment)))
+
+==========================
+block comment (multi-line)
+==========================
+
+x
+-*
+comment
+comment
+comment
+*-
+y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (identifier))))
+  (comment)
+  (statement
+    (parse_tree
+      (token
+        (identifier)))))
+
+======================
+block comment (inline)
+======================
+
+x -* comment *- y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (comment)
+        (token
+          (identifier))))))

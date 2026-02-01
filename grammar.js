@@ -12,6 +12,8 @@ import operator_info from './operator-info.json' with { type: 'json' };
 export default grammar({
   name: 'Macaulay2',
 
+  extras: ($) => [/\s/, $.comment],
+
   rules: {
     source_file: ($) => repeat($.statement),
 
@@ -319,5 +321,8 @@ export default grammar({
       token(choice(/\d+/, /0[bB][01]+/, /0[oO][0-7]+/, /0[xX][0-9a-fA-F]+/)),
 
     float: ($) => token(/(\d+(\.\d*)?|\.\d+)(p\d+)?([eE][+-]?\d+)?/),
+
+    comment: ($) =>
+      token(choice(seq('--', /[^\n]*/), seq('-*', /[\s\S]*?/, '*-'))),
   },
 });
