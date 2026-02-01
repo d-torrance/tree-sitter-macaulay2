@@ -57,6 +57,39 @@ baz"
       (token
         (string)))))
 
+=======================
+slash-delineated string
+=======================
+
+///
+foo
+bar
+baz
+///
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (string)))))
+
+
+=============================
+empty slash-delineated string
+=============================
+
+//////
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (string)))))
+
 ===============
 decimal integer
 ===============

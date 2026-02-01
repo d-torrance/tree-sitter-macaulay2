@@ -314,8 +314,14 @@ export default grammar({
     // TODO: need to deal with other utf8 chars
     identifier: ($) => /[a-zA-Z][a-zA-Z\d\']*/,
 
-    // TODO: ///-delimited strings
-    string: ($) => token(seq('"', repeat(choice(/[^"\\]/, /\\./)), '"')),
+    string: ($) =>
+      choice(
+        token(seq('"', repeat(choice(/[^"\\]/, /\\./)), '"')),
+        // TODO: deal w/ escaped slashes in ///-delineated strings
+        // e.g., /// //// /// = " /// ", /// ///// = " /"
+        // stretch goal: parse TEST and doc contents!
+        token(seq('///', /[\s\S]*?/, '///')),
+      ),
 
     integer: ($) =>
       token(choice(/\d+/, /0[bB][01]+/, /0[oO][0-7]+/, /0[xX][0-9a-fA-F]+/)),
