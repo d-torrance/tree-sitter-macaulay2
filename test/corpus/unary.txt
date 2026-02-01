@@ -10,9 +10,10 @@ unary sharp
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==========
 unary star
@@ -26,9 +27,10 @@ unary star
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==========
 unary plus
@@ -42,9 +44,10 @@ unary plus
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===========
 unary comma
@@ -58,9 +61,10 @@ unary comma
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===========
 unary minus
@@ -74,9 +78,10 @@ unary minus
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==========
 unary less
@@ -90,9 +95,10 @@ unary less
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===============
 unary less-less
@@ -106,9 +112,10 @@ unary less-less
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ================
 unary less-equal
@@ -122,9 +129,10 @@ unary less-equal
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ============================
 unary long-double-left-arrow
@@ -138,9 +146,10 @@ unary long-double-left-arrow
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =================================
 unary long-long-double-left-arrow
@@ -154,9 +163,10 @@ unary long-long-double-left-arrow
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ============
 unary greater
@@ -170,9 +180,10 @@ unary greater
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====================
 unary greater-equal
@@ -186,9 +197,10 @@ unary greater-equal
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==============
 unary question
@@ -202,9 +214,10 @@ unary question
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =======================
 unary question-question
@@ -218,9 +231,10 @@ unary question-question
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===============
 unary deduction
@@ -234,9 +248,10 @@ unary deduction
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_binary
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====
 break
@@ -250,9 +265,10 @@ break x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==========
 breakpoint
@@ -266,9 +282,10 @@ breakpoint x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ========
 continue
@@ -282,9 +299,10 @@ continue x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===========
 elapsedTime
@@ -298,9 +316,10 @@ elapsedTime x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =============
 elapsedTiming
@@ -314,9 +333,10 @@ elapsedTiming x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===
 not
@@ -330,9 +350,10 @@ not x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =======
 profile
@@ -346,9 +367,10 @@ profile x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ======
 return
@@ -362,9 +384,10 @@ return x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ======
 shield
@@ -378,9 +401,10 @@ shield x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ====
 step
@@ -394,9 +418,10 @@ step x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ====
 TEST
@@ -410,9 +435,10 @@ TEST x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====
 throw
@@ -426,9 +452,10 @@ throw x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ====
 time
@@ -442,9 +469,10 @@ time x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ======
 timing
@@ -458,9 +486,10 @@ timing x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ====
 trap
@@ -474,6 +503,7 @@ trap x
   (statement
     (parse_tree
       (unary
-        (parse_tree
-          (token
-            (identifier)))))))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))

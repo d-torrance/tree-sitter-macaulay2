@@ -47,9 +47,13 @@ operatorInfo = hashTable {
 	    select(keys parsingInfo, k -> (
 		    parsingInfo#k#0 == parsingInfo#k#1)),
 	    k -> (k, parsingInfo#k#1))),
-    ("unary", hashTable apply(
+    ("unary_binary", hashTable apply(
 	    select(keys parsingInfo, k -> (
-		    parsingInfo#k#2 != -1)),
+		    parsingInfo#k#1 != -1 and parsingInfo#k#2 != -1)),
+	    k -> (k, parsingInfo#k#2))),
+    ("unary_only", hashTable apply(
+	    select(keys parsingInfo, k -> (
+		    parsingInfo#k#1 == -1 and parsingInfo#k#2 != -1)),
 	    k -> (k, parsingInfo#k#2))),
     ("postfix", hashTable apply(
 	    select(keys parsingInfo, k -> (

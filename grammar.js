@@ -100,9 +100,18 @@ export default grammar({
         ),
       ),
 
-    unary: ($) =>
+    unary: ($) => choice($.unary_binary, $.unary_only),
+
+    unary_binary: ($) =>
       choice(
-        ...Object.entries(operator_info.unary).map(([op, p]) =>
+        ...Object.entries(operator_info.unary_binary).map(([op, p]) =>
+          prec.right(p, seq(field('operator', op), field('rhs', $.parse_tree))),
+        ),
+      ),
+
+    unary_only: ($) =>
+      choice(
+        ...Object.entries(operator_info.unary_only).map(([op, p]) =>
           prec.right(p, seq(field('operator', op), field('rhs', $.parse_tree))),
         ),
       ),
