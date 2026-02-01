@@ -26,5 +26,8 @@
   },
   "prettier": {
     "singleQuote": true
+  },
+  "dependencies": {
+    "node-addon-api": "^8.5.0"
   }
 }
