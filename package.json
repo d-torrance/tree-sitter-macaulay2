@@ -62,7 +62,10 @@
     }
   },
   "scripts": {
-    "build": "tree-sitter generate",
+    "install": "true",
+    "generate": "tree-sitter generate",
+    "build:node": "node-gyp rebuild",
+    "build": "npm run generate && npm run build:node",
     "test": "tree-sitter test",
     "format": "prettier -w .",
     "lint": "prettylint . && eslint .",

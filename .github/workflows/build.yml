@@ -9,9 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Install dependencies
-        run: |
-          npm clean-install --ignore-scripts
-          cd node_modules/tree-sitter-cli && npm install
+        run: npm clean-install
       - name: Lint
         run: npm run lint
       - name: Build
