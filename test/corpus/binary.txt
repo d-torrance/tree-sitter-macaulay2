@@ -737,3 +737,1280 @@ x!=y
           (parse_tree
             (token
               (identifier))))))))
+
+=================
+augmented-percent
+=================
+
+x%=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===================
+augmented-ampersand
+===================
+
+x&=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===================
+augmented-star-star
+===================
+
+x**=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===============
+augumented-star
+===============
+
+x*=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===================
+augmented-plus-plus
+===================
+
+x++=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+==============
+augmented-plus
+==============
+
+x+=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===============
+augmented-minus
+===============
+
+x-=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+======================
+augmented-dot-dot-less
+======================
+
+x..<=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=================
+augmented-dot-dot
+=================
+
+x..=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=====================
+augmented-slash-slash
+=====================
+
+x//=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===============
+augmented-slash
+===============
+
+x/=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=====
+colon
+=====
+
+x:y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===========
+colon-equal
+===========
+
+x:=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+====
+less
+====
+
+x<y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+==========
+left-arrow
+==========
+
+x<-y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===================
+augmented-less-less
+===================
+
+x<<=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+==========
+less-equal
+==========
+
+x<=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+======================
+long-double-left-arrow
+======================
+
+x<==y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===========================
+long-long-double-left-arrow
+===========================
+
+x<===y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+====================
+long-bi-double-arrow
+====================
+
+x<==>y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+==============================
+augmented-long-bi-double-arrow
+==============================
+
+x<==>=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=====
+equal
+=====
+
+x=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=====================
+not-equal-equal-equal
+=====================
+
+x=!=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===========
+equal-equal
+===========
+
+x==y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=================
+equal-equal-equal
+=================
+
+x===y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+============================
+long-long-double-right-arrow
+============================
+
+x===>y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+======================================
+augmented-long-long-double-right-arrow
+======================================
+
+x===>=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=======================
+long-double-right-arrow
+=======================
+
+x==>y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=================================
+augmented-long-double-right-arrow
+=================================
+
+x==>=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+==================
+double-right-arrow
+==================
+
+x=>y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=======
+greater
+=======
+
+x>y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=============
+greater-equal
+=============
+
+x>=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===============
+greater-greater
+===============
+
+x>>y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=========================
+augmented-greater-greater
+=========================
+
+x>>=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+========
+question
+========
+
+x?y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=================
+question-question
+=================
+
+x??y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===========================
+augmented-question-question
+===========================
+
+x??=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===
+at
+===
+
+x@y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+============
+augmented-at
+============
+
+x@=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===============
+augmented-at-at
+===============
+
+x@@=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+========================
+augmented-at-at-question
+========================
+
+x@@?=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=========
+backslash
+=========
+
+x\y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===================
+augmented-backslash
+===================
+
+x\=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===================
+backslash-backslash
+===================
+
+x\\y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=============================
+augmented-backslash-backslash
+=============================
+
+x\\=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=========================
+augmented-power-star-star
+=========================
+
+x^**=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===============
+augmented-power
+===============
+
+x^=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=====================
+augmented-power-power
+=====================
+
+x^^=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+====================
+augmented-underscore
+====================
+
+x_=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=========
+deduction
+=========
+
+x|-y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===================
+augmented-deduction
+===================
+
+x|-=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=============
+augmented-bar
+=============
+
+x|=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+========================
+augmented-bar-underscore
+========================
+
+x|_=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=================
+augmented-bar-bar
+=================
+
+x||=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+==============
+augmented-cdot
+==============
+
+x·=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=====================
+augmented-box-product
+=====================
+
+x⊠=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=========================
+augmented-shuffle-product
+=========================
+
+x⧢=y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===
+and
+===
+
+x and y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===
+or
+===
+
+x or y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===
+xor
+===
+
+x xor y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===================
+order of operations
+===================
+
+x + y * z
+x or y and z
+x = y + z
+x^y^z
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (binary
+              (binary_left
+                (parse_tree
+                  (token
+                    (identifier)))
+                (parse_tree
+                  (token
+                    (identifier))))))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (binary
+              (binary_right
+                (parse_tree
+                  (token
+                    (identifier)))
+                (parse_tree
+                  (token
+                    (identifier))))))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (binary
+              (binary_left
+                (parse_tree
+                  (token
+                    (identifier)))
+                (parse_tree
+                  (token
+                    (identifier))))))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (binary
+              (binary_left
+                (parse_tree
+                  (token
+                    (identifier)))
+                (parse_tree
+                  (token
+                    (identifier))))))
+          (parse_tree
+            (token
+              (identifier))))))))
