@@ -34,3 +34,487 @@ f g x
             (identifier))
           (token
             (identifier)))))))
+
+=======================
+adjacent w/ parentheses
+=======================
+
+x (y)
+(x) y
+(x) (y)
+x ()
+() x
+() ()
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (parentheses
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (parentheses
+          (parse_tree
+            (token
+              (identifier))))
+        (token
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (parentheses
+          (parse_tree
+            (token
+              (identifier))))
+        (parentheses
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (empty_parentheses))))
+  (statement
+    (parse_tree
+      (adjacent
+        (empty_parentheses)
+        (token
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (empty_parentheses)
+        (empty_parentheses)))))
+
+=================
+adjacent w/ unary
+=================
+
+x not y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))
+
+==============
+adjacent w/ if
+==============
+
+x if y then z
+x if y then z else w
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (if_then
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (if_then_else
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=================
+adjacent w/ quote
+=================
+
+symbol x y
+x symbol y
+symbol x symbol y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (quote
+          (identifier))
+        (token
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (quote
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (quote
+          (identifier))
+        (quote
+          (identifier))))))
+
+========================
+adjacent w/ global-quote
+========================
+
+global x y
+x global y
+global x global y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (global_quote
+          (identifier))
+        (token
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (global_quote
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (global_quote
+          (identifier))
+        (global_quote
+          (identifier))))))
+
+=======================
+adjacent w/ local-quote
+=======================
+
+local x y
+x local y
+local x local y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (local_quote
+          (identifier))
+        (token
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (local_quote
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (local_quote
+          (identifier))
+        (local_quote
+          (identifier))))))
+
+========================
+adjacent w/ thread-quote
+========================
+
+threadLocal x y
+x threadLocal y
+threadLocal x threadLocal y
+threadVariable x y
+x threadVariable y
+threadVariable x threadVariable y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (thread_quote
+          (identifier))
+        (token
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (thread_quote
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (thread_quote
+          (identifier))
+        (thread_quote
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (thread_quote
+          (identifier))
+        (token
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (thread_quote
+          (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (thread_quote
+          (identifier))
+        (thread_quote
+          (identifier))))))
+
+===
+try
+===
+
+x try y
+x try y then z
+x try y else w
+x try y then z else w
+x try y except a do b
+x try y then z except a do b
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (try
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (try_then
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (try_else
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (try_then_else
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (try_do
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (try_then_do
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=====
+catch
+=====
+
+x catch y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (catch
+          (parse_tree
+            (token
+              (identifier))))))))
+
+=====
+while
+=====
+
+x while y do w
+x while y list z
+x while y list z do w
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (while_do
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (while_list
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (while_list_do
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===
+for
+===
+
+x for y in z do w
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (for
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===
+new
+===
+
+x new y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (new
+          (parse_tree
+            (token
+              (identifier))))))))

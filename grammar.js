@@ -43,23 +43,75 @@ export default grammar({
         $.try,
         $.catch,
         $.while_do,
-        $.for,
         $.while_list,
         $.while_list_do,
+        $.for,
         $.arrow,
         $.new,
       ),
 
-    // TODO: more cases to consider, e.g.,
-    // "x not y" => (adjacent (token x) (unary (token not) (token y)))
+    // TODO:
+    // currently breaks tests on both lhs and rhs:
+    // - binary
+    // - postfix
+
+    // NOTE:
+    // due to precedence, the following will never be on the lhs:
+    // - unary
+    // - if
+    // - try
+    // - catch
+    // - while
+    // - for
+    // - new
+    // on the rhs:
+    // - unary_binary
+    // on the lhs or rhs:
+    // - arrow
+
     adjacent: ($) =>
       prec.right(
         operator_info.adjacent,
         seq(
-          field('lhs', choice($.token, $.parentheses, $.empty_parentheses)),
+          field(
+            'lhs',
+            choice(
+              $.token,
+              $.parentheses,
+              $.empty_parentheses,
+              $.quote,
+              $.global_quote,
+              $.thread_quote,
+              $.local_quote,
+            ),
+          ),
           field(
             'rhs',
-            choice($.token, $.parentheses, $.empty_parentheses, $.adjacent),
+            choice(
+              $.token,
+              $.adjacent,
+              $.parentheses,
+              $.empty_parentheses,
+              $.unary_only,
+              $.if_then,
+              $.if_then_else,
+              $.quote,
+              $.global_quote,
+              $.thread_quote,
+              $.local_quote,
+              $.try_do,
+              $.try_then_do,
+              $.try_then_else,
+              $.try_then,
+              $.try_else,
+              $.try,
+              $.catch,
+              $.while_do,
+              $.while_list,
+              $.while_list_do,
+              $.for,
+              $.new,
+            ),
           ),
         ),
       ),
