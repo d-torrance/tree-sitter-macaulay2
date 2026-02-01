@@ -1,6 +1,14 @@
 const operator_info = require('./operator-info.json');
+/**
+ * @file Macaulay2 grammar for tree-sitter
+ * @author Doug Torrance <dtorrance@piedmont.edu>
+ * @license MIT
+ */
 
 module.exports = grammar({
+/// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
+
   name: 'Macaulay2',
 
   rules: {
