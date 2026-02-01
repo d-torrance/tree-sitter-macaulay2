@@ -7,7 +7,7 @@
     "build": "tree-sitter generate",
     "test": "tree-sitter test",
     "format": "prettier -w .",
-    "lint": "prettylint .",
+    "lint": "prettylint . && eslint .",
     "update-operators": "M2 --script get-operators.m2"
   },
   "author": "",
@@ -16,6 +16,12 @@
     "nan": "^2.17.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@eslint/json": "^1.0.0",
+    "@eslint/markdown": "^7.5.1",
+    "eslint": "^9.39.2",
+    "eslint-config-treesitter": "^1.0.2",
+    "globals": "^17.3.0",
     "prettier": "^3.8.1",
     "prettylint": "^2.0.0",
     "tree-sitter-cli": "^0.26.3"
@@ -26,5 +32,8 @@
         "m2"
       ]
     }
-  ]
+  ],
+  "prettier": {
+    "singleQuote": true
+  }
 }
