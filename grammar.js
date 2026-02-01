@@ -29,8 +29,7 @@ export default grammar({
         $.postfix,
         $.parentheses,
         $.empty_parentheses,
-        $.if_then,
-        $.if_then_else,
+        $.if,
         $.quote,
         $.global_quote,
         $.thread_quote,
@@ -93,8 +92,7 @@ export default grammar({
               $.parentheses,
               $.empty_parentheses,
               $.unary_only,
-              $.if_then,
-              $.if_then_else,
+              $.if,
               $.quote,
               $.global_quote,
               $.thread_quote,
@@ -269,24 +267,14 @@ export default grammar({
 
     local_quote: ($) => seq('local', field('rhs', $.identifier)),
 
-    if_then: ($) =>
-      seq(
-        'if',
-        field('predicate', $.parse_tree),
-        'then',
-        field('then_clause', $.parse_tree),
-      ),
-
-    if_then_else: ($) =>
-      prec(
-        1,
+    if: ($) =>
+      prec.right(
         seq(
           'if',
           field('predicate', $.parse_tree),
           'then',
           field('then_clause', $.parse_tree),
-          'else',
-          field('else_clause', $.parse_tree),
+          optional(seq('else', field('else_clause', $.parse_tree))),
         ),
       ),
 

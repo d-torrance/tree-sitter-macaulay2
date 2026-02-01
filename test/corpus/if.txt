@@ -9,7 +9,7 @@ if x then y
 (source_file
   (statement
     (parse_tree
-      (if_then
+      (if
         (parse_tree
           (token
             (identifier)))
@@ -28,7 +28,7 @@ if x then y else z
 (source_file
   (statement
     (parse_tree
-      (if_then_else
+      (if
         (parse_tree
           (token
             (identifier)))
@@ -50,12 +50,12 @@ if x then if y then z else w
 (source_file
   (statement
     (parse_tree
-      (if_then
+      (if
         (parse_tree
           (token
             (identifier)))
         (parse_tree
-          (if_then_else
+          (if
             (parse_tree
               (token
                 (identifier)))

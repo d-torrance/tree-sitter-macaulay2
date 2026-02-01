@@ -137,7 +137,7 @@ if try x then y else z then y
 (source_file
   (statement
     (parse_tree
-      (if_then
+      (if
         (parse_tree
           (try_then_else
             (parse_tree
@@ -211,7 +211,7 @@ try if x then y else z
     (parse_tree
       (try
         (parse_tree
-          (if_then_else
+          (if
             (parse_tree
               (token
                 (identifier)))

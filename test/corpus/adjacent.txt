@@ -130,7 +130,7 @@ x if y then z else w
       (adjacent
         (token
           (identifier))
-        (if_then
+        (if
           (parse_tree
             (token
               (identifier)))
@@ -142,7 +142,7 @@ x if y then z else w
       (adjacent
         (token
           (identifier))
-        (if_then_else
+        (if
           (parse_tree
             (token
               (identifier)))
