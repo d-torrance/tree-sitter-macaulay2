@@ -1,7 +1,3 @@
-TODO:
-* for-in-*, for-from-*, for-to-*, and for-from-to-*
-* conflict w/ while-do (right associativity)
-
 ======
 for-do
 ======
@@ -11,14 +7,15 @@ for x do y
 ---
 
 (source_file
- (parse_tree
-  (for
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (for
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ========
 for-list
@@ -29,14 +26,15 @@ for x list y
 ---
 
 (source_file
- (parse_tree
-  (for
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (for
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========
 for-list-do
@@ -47,17 +45,18 @@ for x list y do z
 ---
 
 (source_file
- (parse_tree
-  (for
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (for
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========
 for-when-do
@@ -68,17 +67,18 @@ for x when y do z
 ---
 
 (source_file
- (parse_tree
-  (for
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (for
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =============
 for-when-list
@@ -89,18 +89,18 @@ for x when y list z
 ---
 
 (source_file
- (parse_tree
-  (for
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
-
+  (statement
+    (parse_tree
+      (for
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ================
 for-when-list-do
@@ -111,17 +111,18 @@ for x when y list z do w
 ---
 
 (source_file
- (parse_tree
-  (for
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (for
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))

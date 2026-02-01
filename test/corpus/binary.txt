@@ -7,15 +7,16 @@ x#y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==============
 sharp-question
@@ -26,15 +27,16 @@ x#?y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =======
 percent
@@ -45,15 +47,16 @@ x%y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =========
 ampersand
@@ -64,15 +67,16 @@ x&y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ====
 star
@@ -83,15 +87,16 @@ x*y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =========
 star-star
@@ -102,15 +107,16 @@ x**y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ====
 plus
@@ -121,15 +127,16 @@ x+y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =========
 plus-plus
@@ -140,15 +147,16 @@ x++y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====
 comma
@@ -159,15 +167,16 @@ x,y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====
 minus
@@ -178,15 +187,16 @@ x-y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===
 dot
@@ -197,15 +207,16 @@ x.y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====
 dot-dot
@@ -216,15 +227,16 @@ x..y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ============
 dot-question
@@ -235,15 +247,16 @@ x.?y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====
 slash
@@ -254,15 +267,16 @@ x/y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===========
 slash-slash
@@ -273,15 +287,16 @@ x//y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =========
 less-less
@@ -292,15 +307,16 @@ x<<y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====
 at-at
@@ -311,15 +327,16 @@ x@@y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==============
 at-at-question
@@ -330,15 +347,16 @@ x@@?y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====
 power
@@ -349,15 +367,16 @@ x^y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===============
 power-star-star
@@ -368,15 +387,16 @@ x^**y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==========
 power-less
@@ -387,15 +407,16 @@ x^<y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ================
 power-less-equal
@@ -406,15 +427,16 @@ x^<=y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =============
 power-greater
@@ -425,15 +447,16 @@ x^>y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===================
 power-greater-equal
@@ -444,15 +467,16 @@ x^>=y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===========
 power-power
@@ -463,15 +487,16 @@ x^^y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==========
 underscore
@@ -482,15 +507,16 @@ x_y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===============
 underscore-less
@@ -501,15 +527,16 @@ x_<y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =====================
 underscore-less-equal
@@ -520,15 +547,16 @@ x_<=y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==================
 underscore-greater
@@ -539,15 +567,16 @@ x_>y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ========================
 underscore-greater-equal
@@ -558,15 +587,16 @@ x_>=y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===
 bar
@@ -577,15 +607,16 @@ x|y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==============
 bar-underscore
@@ -596,15 +627,16 @@ x#y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 =======
 bar-bar
@@ -615,15 +647,16 @@ x||y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ====
 cdot
@@ -634,15 +667,16 @@ x·y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===========
 box-product
@@ -653,15 +687,16 @@ x⊠y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ===============
 shuffle-product
@@ -672,15 +707,16 @@ x⧢y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_left
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_left
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
 
 ==========
 not-equals
@@ -691,12 +727,13 @@ x!=y
 ---
 
 (source_file
-  (parse_tree
-    (binary
-      (binary_right
-        (parse_tree
-          (token
-            (identifier)))
-        (parse_tree
-          (token
-            (identifier)))))))
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))

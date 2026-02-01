@@ -7,14 +7,15 @@ if x then y
 ---
 
 (source_file
- (parse_tree
-  (if_then
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (if_then
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ============
 if-then-else
@@ -25,17 +26,18 @@ if x then y else z
 ---
 
 (source_file
- (parse_tree
-  (if_then_else
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (if_then_else
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =============
 dangling else
@@ -46,19 +48,20 @@ if x then if y then z else w
 ---
 
 (source_file
- (parse_tree
-  (if_then
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (if_then_else
-     (parse_tree
-      (token
-       (identifier)))
-     (parse_tree
-      (token
-       (identifier)))
-     (parse_tree
-      (token
-       (identifier))))))))
+  (statement
+    (parse_tree
+      (if_then
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (if_then_else
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))))))

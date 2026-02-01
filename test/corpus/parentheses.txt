@@ -7,8 +7,9 @@ empty parentheses
 ---
 
 (source_file
-  (parse_tree
-    (empty_parentheses)))
+  (statement
+    (parse_tree
+      (empty_parentheses))))
 
 ==============
 empty brackets
@@ -19,8 +20,9 @@ empty brackets
 ---
 
 (source_file
-  (parse_tree
-    (empty_parentheses)))
+  (statement
+    (parse_tree
+      (empty_parentheses))))
 
 ============
 empty braces
@@ -31,9 +33,9 @@ empty braces
 ---
 
 (source_file
-  (parse_tree
-    (empty_parentheses)))
-
+  (statement
+    (parse_tree
+      (empty_parentheses))))
 
 =====================
 empty angled brackets
@@ -44,8 +46,9 @@ empty angled brackets
 ---
 
 (source_file
-  (parse_tree
-    (empty_parentheses)))
+  (statement
+    (parse_tree
+      (empty_parentheses))))
 
 ===========
 parentheses
@@ -56,11 +59,12 @@ parentheses
 ---
 
 (source_file
-  (parse_tree
-    (parentheses
-      (parse_tree
-        (token
-          (identifier))))))
+  (statement
+    (parse_tree
+      (parentheses
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ========
 brackets
@@ -71,11 +75,12 @@ brackets
 ---
 
 (source_file
-  (parse_tree
-    (parentheses
-      (parse_tree
-        (token
-          (identifier))))))
+  (statement
+    (parse_tree
+      (parentheses
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ======
 braces
@@ -86,11 +91,12 @@ braces
 ---
 
 (source_file
-  (parse_tree
-    (parentheses
-      (parse_tree
-        (token
-          (identifier))))))
+  (statement
+    (parse_tree
+      (parentheses
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 angled brackets
@@ -101,8 +107,9 @@ angled brackets
 ---
 
 (source_file
-  (parse_tree
-    (parentheses
-      (parse_tree
-        (token
-          (identifier))))))
+  (statement
+    (parse_tree
+      (parentheses
+        (parse_tree
+          (token
+            (identifier)))))))

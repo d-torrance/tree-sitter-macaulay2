@@ -6,6 +6,7 @@ keywords = unique select(values Core.Dictionary,
     x -> instance(x, Keyword) and not isMember(x, {
 	    -- special keywords
 	    symbol ->,
+	    symbol ;,
 	    symbol catch,
 	    symbol do,
 	    symbol else,

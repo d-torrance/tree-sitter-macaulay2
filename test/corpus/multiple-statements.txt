@@ -1,0 +1,45 @@
+========
+newlines
+========
+
+x
+y
+z
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (identifier))))
+  (statement
+    (parse_tree
+      (token
+        (identifier))))
+  (statement
+    (parse_tree
+      (token
+        (identifier)))))
+
+==========
+semicolons
+==========
+
+x;y;z
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (identifier))))
+  (statement
+    (parse_tree
+      (token
+        (identifier))))
+  (statement
+    (parse_tree
+      (token
+        (identifier)))))

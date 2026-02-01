@@ -4,7 +4,9 @@ module.exports = grammar({
   name: "Macaulay2",
 
   rules: {
-    source_file: ($) => $.parse_tree,
+    source_file: ($) => repeat($.statement),
+
+    statement: ($) => seq($.parse_tree, optional(choice(/\n+/, ";"))),
 
     // ParseTree union from parse.d
     parse_tree: ($) =>

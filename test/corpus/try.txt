@@ -7,11 +7,12 @@ try x
 ---
 
 (source_file
- (parse_tree
-  (try
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (try
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ========
 try-then
@@ -22,30 +23,15 @@ try x then y
 ---
 
 (source_file
-  (parse_tree
-    (try_then
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier))))))
-
-========
-try-else
-========
-
-try x else y
-
-(source_file
- (parse_tree
-  (try_else
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (try_then
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =============
 try-then-else
@@ -56,17 +42,18 @@ try x then y else z
 ---
 
 (source_file
- (parse_tree
-  (try_then_else
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier)))
-   (parse_tree
-    (token
-     (identifier))))))
+  (statement
+    (parse_tree
+      (try_then_else
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ======
 try-do
@@ -77,18 +64,18 @@ try x except y do z
 ---
 
 (source_file
-  (parse_tree
-    (try_do
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier))))))
-
+  (statement
+    (parse_tree
+      (try_do
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========
 try-then-do
@@ -99,20 +86,21 @@ try x then y except z do w
 ---
 
 (source_file
-  (parse_tree
-    (try_then_do
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier))))))
+  (statement
+    (parse_tree
+      (try_then_do
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ====================
 try w/ try-then-else
@@ -123,19 +111,20 @@ try try x then y else z
 ---
 
 (source_file
- (parse_tree
-  (try
-   (parse_tree
-    (try_then_else
-     (parse_tree
-      (token
-       (identifier)))
-     (parse_tree
-      (token
-       (identifier)))
-     (parse_tree
-      (token
-       (identifier))))))))
+  (statement
+    (parse_tree
+      (try
+        (parse_tree
+          (try_then_else
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))))))
 
 ========================
 if-then w/ try-then-else
@@ -146,22 +135,23 @@ if try x then y else z then y
 ---
 
 (source_file
- (parse_tree
-  (if_then
-   (parse_tree
-    (try_then_else
-     (parse_tree
-      (token
-       (identifier)))
-     (parse_tree
-      (token
-       (identifier)))
-     (parse_tree
-      (token
-       (identifier)))))
-   (parse_tree
-    (token
-      (identifier))))))
+  (statement
+    (parse_tree
+      (if_then
+        (parse_tree
+          (try_then_else
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 try w/ try-else
@@ -172,16 +162,17 @@ try try x else y
 ---
 
 (source_file
-  (parse_tree
-    (try
-      (parse_tree
-        (try_else
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+  (statement
+    (parse_tree
+      (try
+        (parse_tree
+          (try_else
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))))))
 
 =============
 try w/ try-do
@@ -192,19 +183,20 @@ try try x except y do z
 ---
 
 (source_file
-  (parse_tree
-    (try
-      (parse_tree
-        (try_do
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+  (statement
+    (parse_tree
+      (try
+        (parse_tree
+          (try_do
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))))))
 
 ===================
 try w/ if-then-else
@@ -215,19 +207,20 @@ try if x then y else z
 ---
 
 (source_file
-  (parse_tree
-    (try
-      (parse_tree
-        (if_then_else
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+  (statement
+    (parse_tree
+      (try
+        (parse_tree
+          (if_then_else
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))))))
 
 ====================
 try w/ try-then-else
@@ -238,16 +231,17 @@ try try x then y else z
 ---
 
 (source_file
-  (parse_tree
-    (try
-      (parse_tree
-        (try_then_else
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+  (statement
+    (parse_tree
+      (try
+        (parse_tree
+          (try_then_else
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))))))

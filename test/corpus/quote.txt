@@ -7,9 +7,10 @@ symbol x
 ---
 
 (source_file
-  (parse_tree
-    (quote
-      (identifier))))
+  (statement
+    (parse_tree
+      (quote
+        (identifier)))))
 
 ======
 global
@@ -20,9 +21,10 @@ global x
 ---
 
 (source_file
-  (parse_tree
-    (global_quote
-      (identifier))))
+  (statement
+    (parse_tree
+      (global_quote
+        (identifier)))))
 
 =====
 local
@@ -33,9 +35,10 @@ local x
 ---
 
 (source_file
-  (parse_tree
-    (local_quote
-      (identifier))))
+  (statement
+    (parse_tree
+      (local_quote
+        (identifier)))))
 
 ===========
 threadLocal
@@ -46,19 +49,21 @@ threadLocal x
 ---
 
 (source_file
-  (parse_tree
-    (thread_quote
-      (identifier))))
+  (statement
+    (parse_tree
+      (thread_quote
+        (identifier)))))
 
 ==============
 threadVariable
-=============
+==============
 
 threadVariable x
 
 ---
 
 (source_file
-  (parse_tree
-    (thread_quote
-      (identifier))))
+  (statement
+    (parse_tree
+      (thread_quote
+        (identifier)))))

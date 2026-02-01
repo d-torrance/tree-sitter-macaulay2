@@ -7,14 +7,15 @@ while x do y
 ---
 
 (source_file
-  (parse_tree
-    (while_do
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier))))))
+  (statement
+    (parse_tree
+      (while_do
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==========
 while-list
@@ -25,15 +26,15 @@ while x list y
 ---
 
 (source_file
-  (parse_tree
-    (while_list
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier))))))
-
+  (statement
+    (parse_tree
+      (while_list
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =============
 while-list-do
@@ -44,17 +45,18 @@ while x list y do z
 ---
 
 (source_file
-  (parse_tree
-    (while_list_do
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier)))
-      (parse_tree
-        (token
-          (identifier))))))
+  (statement
+    (parse_tree
+      (while_list_do
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========
 dangling do
@@ -65,19 +67,20 @@ while while x list y do z do w
 ---
 
 (source_file
-  (parse_tree
-    (while_do
-      (parse_tree
-        (while_list_do
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))))
-      (parse_tree
-        (token
-          (identifier))))))
+  (statement
+    (parse_tree
+      (while_do
+        (parse_tree
+          (while_list_do
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))
+        (parse_tree
+          (token
+            (identifier)))))))

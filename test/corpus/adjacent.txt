@@ -7,9 +7,10 @@ f x
 ---
 
 (source_file
-  (parse_tree
-    (adjacent
-      (token
-        (identifier))
-      (token
-        (identifier)))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (token
+          (identifier))))))
