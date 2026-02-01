@@ -296,7 +296,8 @@ module.exports = grammar({
       choice(
         $.identifier, // TCid
         $.string, // TCstring
-        // TODO: TCint, TCRR
+        $.integer, // TCint
+        // TODO: TCRR
       ),
 
     // TODO: need to deal with other utf8 chars
@@ -304,5 +305,8 @@ module.exports = grammar({
 
     // TODO: ///-delimited strings
     string: ($) => token(seq('"', repeat(choice(/[^"\\]/, /\\./)), '"')),
+
+    integer: ($) =>
+      token(choice(/\d+/, /0[bB][01]+/, /0[oO][0-7]+/, /0[xX][0-9a-fA-F]+/)),
   },
 });

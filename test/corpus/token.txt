@@ -56,3 +56,101 @@ baz"
     (parse_tree
       (token
         (string)))))
+
+===============
+decimal integer
+===============
+
+9876543210
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (integer)))))
+
+===================
+binary integer (0b)
+===================
+
+0b010101010101
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (integer)))))
+
+===================
+binary integer (0B)
+===================
+
+0B010101010101
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (integer)))))
+
+==================
+octal integer (0o)
+==================
+
+0o76543210
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (integer)))))
+
+==================
+octal integer (0O)
+==================
+
+0O76543210
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (integer)))))
+
+========================
+hexadecimal integer (0x)
+========================
+
+0xfedcba9876543210
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (integer)))))
+
+========================
+hexadecimal integer (0X)
+========================
+
+0XFEDBCA9876543210
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (integer)))))
