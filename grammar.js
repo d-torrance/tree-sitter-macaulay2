@@ -295,10 +295,14 @@ module.exports = grammar({
     token: ($) =>
       choice(
         $.identifier, // TCid
-        // TODO: TCint, TCRR, TCstring
+        $.string, // TCstring
+        // TODO: TCint, TCRR
       ),
 
     // TODO: need to deal with other utf8 chars
     identifier: ($) => /[a-zA-Z][a-zA-Z\d\']*/,
+
+    // TODO: ///-delimited strings
+    string: ($) => token(seq('"', repeat(choice(/[^"\\]/, /\\./)), '"')),
   },
 });

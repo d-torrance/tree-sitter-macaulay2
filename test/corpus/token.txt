@@ -1,0 +1,58 @@
+==========
+identifier
+==========
+
+monomialCurveIdeal
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (identifier)))))
+
+======
+string
+======
+
+"Hello, world!"
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (string)))))
+
+========================
+string w/ escaped quotes
+========================
+
+"String with \"escaped\" quotes"
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (string)))))
+
+==================
+string w/ newlines
+==================
+
+"foo
+bar
+
+baz"
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (token
+        (string)))))
