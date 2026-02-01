@@ -18,6 +18,5 @@ To open up a playground and parse Macaulay2 code:
 npm run start
 ```
 
-*Note:*  Use `google-chrome --enable-features=WebAssemblyUnlimitedSyncCompilation`
+_Note:_ Use `google-chrome --enable-features=WebAssemblyUnlimitedSyncCompilation`
 for this to work in Google Chrome.
-
