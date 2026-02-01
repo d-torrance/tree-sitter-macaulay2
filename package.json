@@ -1,18 +1,41 @@
 {
   "name": "tree-sitter-macaulay2",
   "version": "0.0.1",
-  "type": "module",
   "description": "Macaulay2 grammar for tree-sitter",
-  "main": "bindings/node",
-  "scripts": {
-    "build": "tree-sitter generate",
-    "test": "tree-sitter test",
-    "format": "prettier -w .",
-    "lint": "prettylint . && eslint .",
-    "update-operators": "M2 --script get-operators.m2"
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-torrance/tree-sitter-macaulay2.git"
   },
-  "author": "",
+  "funding": "",
   "license": "MIT",
+  "author": {
+    "name": "Doug Torrance",
+    "email": "dtorrance@piedmont.edu",
+    "url": "https://webwork.piedmont.edu/~dtorrance"
+  },
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "macaulay2"
+  ],
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**",
+    "*.wasm"
+  ],
+  "dependencies": {
+    "node-addon-api": "^8.5.0",
+    "node-gyp-build": "^4.8.4"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@eslint/json": "^1.0.0",
@@ -20,14 +43,29 @@
     "eslint": "^9.39.2",
     "eslint-config-treesitter": "^1.0.2",
     "globals": "^17.3.0",
+    "node": "^22.22.0",
+    "prebuildify": "^6.0.1",
     "prettier": "^3.8.1",
     "prettylint": "^2.0.0",
+    "tree-sitter": "^0.25.0",
     "tree-sitter-cli": "^0.26.3"
   },
   "prettier": {
     "singleQuote": true
   },
-  "dependencies": {
-    "node-addon-api": "^8.5.0"
+  "peerDependencies": {
+    "tree-sitter": "^0.25.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "format": "prettier -w .",
+    "lint": "prettylint . && eslint .",
+    "update-operators": "M2 --script get-operators.m2"
   }
 }
