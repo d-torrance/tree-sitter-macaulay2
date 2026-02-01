@@ -15,9 +15,9 @@ export default grammar({
   extras: ($) => [/\s/, $.comment],
 
   rules: {
-    source_file: ($) => repeat($.statement),
+    source_file: ($) => seq(repeat($.statement), optional($.parse_tree)),
 
-    statement: ($) => seq($.parse_tree, optional(choice(/\n+/, ';'))),
+    statement: ($) => seq($.parse_tree, choice(/\n+/, ';')),
 
     // ParseTree union from parse.d
     parse_tree: ($) =>
@@ -57,7 +57,10 @@ export default grammar({
         operator_info.adjacent,
         seq(
           field('lhs', choice($.token, $.parentheses, $.empty_parentheses)),
-          field('rhs', choice($.token, $.parentheses, $.empty_parentheses)),
+          field(
+            'rhs',
+            choice($.token, $.parentheses, $.empty_parentheses, $.adjacent),
+          ),
         ),
       ),
 

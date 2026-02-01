@@ -14,3 +14,23 @@ f x
           (identifier))
         (token
           (identifier))))))
+
+================
+nested adjacents
+================
+
+f g x
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (adjacent
+          (token
+            (identifier))
+          (token
+            (identifier)))))))
