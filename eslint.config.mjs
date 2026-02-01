@@ -5,11 +5,6 @@ import markdown from '@eslint/markdown';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import treesitter from 'eslint-config-treesitter';
 
-const treesitterConfigs = treesitter.map((cfg) => ({
-  ...cfg,
-  files: ['grammar.js'],
-}));
-
 export default defineConfig([
   {
     files: ['eslint.config.mjs'],
@@ -29,6 +24,9 @@ export default defineConfig([
     language: 'markdown/gfm',
     extends: ['markdown/recommended'],
   },
-  ...treesitterConfigs,
+  {
+    files: ['grammar.js'],
+    extends: [treesitter],
+  },
   globalIgnores(['package-lock.json']),
 ]);
