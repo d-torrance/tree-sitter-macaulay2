@@ -66,6 +66,8 @@
     "test": "tree-sitter test",
     "format": "prettier -w .",
     "lint": "prettylint . && eslint .",
-    "update-operators": "M2 --script get-operators.m2"
+    "update-operators": "M2 --script get-operators.m2",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground"
   }
 }

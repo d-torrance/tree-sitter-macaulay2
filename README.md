@@ -9,3 +9,15 @@ A Tree-sitter grammar for the Macaulay2 programming language.
 This project teaches Tree-sitter how to parse Macaulay2 source code.
 
 ⚠️ Work in progress.
+
+## Playground
+
+To open up a playground and parse Macaulay2 code:
+
+```shell
+npm run start
+```
+
+*Note:*  Use `google-chrome --enable-features=WebAssemblyUnlimitedSyncCompilation`
+for this to work in Google Chrome.
+
