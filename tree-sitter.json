@@ -14,7 +14,7 @@
   "metadata": {
     "version": "0.0.1",
     "license": "MIT",
-    "description": "Macaulay2 parser",
+    "description": "Macaulay2 grammar for tree-sitter",
     "authors": [
       {
         "name": "Doug Torrance",
