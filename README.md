@@ -15,6 +15,8 @@ This project teaches Tree-sitter how to parse Macaulay2 source code.
 To open up a playground and parse Macaulay2 code:
 
 ```shell
+npm install
+npm run generate
 npm run start
 ```
 
