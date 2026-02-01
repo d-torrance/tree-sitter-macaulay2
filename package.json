@@ -26,13 +26,6 @@
     "prettylint": "^2.0.0",
     "tree-sitter-cli": "^0.26.3"
   },
-  "tree-sitter": [
-    {
-      "file-types": [
-        "m2"
-      ]
-    }
-  ],
   "prettier": {
     "singleQuote": true
   }
