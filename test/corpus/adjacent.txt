@@ -83,18 +83,18 @@ x ()
       (adjacent
         (token
           (identifier))
-        (empty_parentheses))))
+        (parentheses))))
   (statement
     (parse_tree
       (adjacent
-        (empty_parentheses)
+        (parentheses)
         (token
           (identifier)))))
   (statement
     (parse_tree
       (adjacent
-        (empty_parentheses)
-        (empty_parentheses)))))
+        (parentheses)
+        (parentheses)))))
 
 =================
 adjacent w/ unary

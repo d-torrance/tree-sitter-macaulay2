@@ -9,7 +9,7 @@ empty parentheses
 (source_file
   (statement
     (parse_tree
-      (empty_parentheses))))
+      (parentheses))))
 
 ==============
 empty brackets
@@ -22,7 +22,7 @@ empty brackets
 (source_file
   (statement
     (parse_tree
-      (empty_parentheses))))
+      (parentheses))))
 
 ============
 empty braces
@@ -35,7 +35,7 @@ empty braces
 (source_file
   (statement
     (parse_tree
-      (empty_parentheses))))
+      (parentheses))))
 
 =====================
 empty angled brackets
@@ -48,7 +48,7 @@ empty angled brackets
 (source_file
   (statement
     (parse_tree
-      (empty_parentheses))))
+      (parentheses))))
 
 ===========
 parentheses

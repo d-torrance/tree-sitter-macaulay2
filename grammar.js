@@ -28,7 +28,6 @@ export default grammar({
         $.unary,
         $.postfix,
         $.parentheses,
-        $.empty_parentheses,
         $.if,
         $.quote,
         $.try,
@@ -59,7 +58,7 @@ export default grammar({
         seq(
           field(
             'lhs',
-            choice($.token, $.parentheses, $.empty_parentheses, $.quote),
+            choice($.token, $.parentheses, $.quote),
           ),
           field(
             'rhs',
@@ -67,7 +66,6 @@ export default grammar({
               $.token,
               $.adjacent,
               $.parentheses,
-              $.empty_parentheses,
               $.unary_only,
               $.if,
               $.quote,
@@ -133,34 +131,26 @@ export default grammar({
         ),
       ),
 
-    empty_parentheses: ($) =>
-      choice(
-        seq(field('left', '['), field('right', ']')),
-        seq(field('left', '<|'), field('right', '|>')),
-        seq(field('left', '('), field('right', ')')),
-        seq(field('left', '{'), field('right', '}')),
-      ),
-
     parentheses: ($) =>
       choice(
         seq(
           field('left', '['),
-          field('contents', $.parse_tree),
+          optional(field('contents', $.parse_tree)),
           field('right', ']'),
         ),
         seq(
           field('left', '<|'),
-          field('contents', $.parse_tree),
+          optional(field('contents', $.parse_tree)),
           field('right', '|>'),
         ),
         seq(
           field('left', '('),
-          field('contents', $.parse_tree),
+          optional(field('contents', $.parse_tree)),
           field('right', ')'),
         ),
         seq(
           field('left', '{'),
-          field('contents', $.parse_tree),
+          optional(field('contents', $.parse_tree)),
           field('right', '}'),
         ),
       ),
