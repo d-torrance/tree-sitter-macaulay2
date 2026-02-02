@@ -4,10 +4,7 @@
     {
       "associativity": "left",
       "precedence": 66,
-      "symbols": [
-        "@@",
-        "@@?"
-      ]
+      "symbols": ["@@", "@@?"]
     },
     {
       "associativity": "left",
@@ -34,31 +31,22 @@
     {
       "associativity": "left",
       "precedence": 10,
-      "symbols": [
-        ","
-      ]
+      "symbols": [","]
     },
     {
       "associativity": "right",
       "precedence": 57,
-      "symbols": [
-        "\\",
-        "\\\\"
-      ]
+      "symbols": ["\\", "\\\\"]
     },
     {
       "associativity": "right",
       "precedence": 59,
-      "symbols": [
-        "@"
-      ]
+      "symbols": ["@"]
     },
     {
       "associativity": "left",
       "precedence": 18,
-      "symbols": [
-        "<<"
-      ]
+      "symbols": ["<<"]
     },
     {
       "associativity": "right",
@@ -108,203 +96,128 @@
     {
       "associativity": "left",
       "precedence": 38,
-      "symbols": [
-        "||"
-      ]
+      "symbols": ["||"]
     },
     {
       "associativity": "right",
       "precedence": 19,
-      "symbols": [
-        "|-"
-      ]
+      "symbols": ["|-"]
     },
     {
       "associativity": "left",
       "precedence": 42,
-      "symbols": [
-        "|"
-      ]
+      "symbols": ["|"]
     },
     {
       "associativity": "right",
       "precedence": 21,
-      "symbols": [
-        "<===",
-        "===>"
-      ]
+      "symbols": ["<===", "===>"]
     },
     {
       "associativity": "right",
       "precedence": 23,
-      "symbols": [
-        "<==>"
-      ]
+      "symbols": ["<==>"]
     },
     {
       "associativity": "left",
       "precedence": 44,
-      "symbols": [
-        "^^"
-      ]
+      "symbols": ["^^"]
     },
     {
       "associativity": "left",
       "precedence": 46,
-      "symbols": [
-        "&"
-      ]
+      "symbols": ["&"]
     },
     {
       "associativity": "right",
       "precedence": 25,
-      "symbols": [
-        "<==",
-        "==>"
-      ]
+      "symbols": ["<==", "==>"]
     },
     {
       "associativity": "right",
       "precedence": 27,
-      "symbols": [
-        "??",
-        "or"
-      ]
+      "symbols": ["??", "or"]
     },
     {
       "associativity": "left",
       "precedence": 48,
-      "symbols": [
-        "..",
-        "..<"
-      ]
+      "symbols": ["..", "..<"]
     },
     {
       "associativity": "left",
       "precedence": 50,
-      "symbols": [
-        "+",
-        "++",
-        "-"
-      ]
+      "symbols": ["+", "++", "-"]
     },
     {
       "associativity": "right",
       "precedence": 29,
-      "symbols": [
-        "xor"
-      ]
+      "symbols": ["xor"]
     },
     {
       "associativity": "right",
       "precedence": 31,
-      "symbols": [
-        "and"
-      ]
+      "symbols": ["and"]
     },
     {
       "associativity": "left",
       "precedence": 52,
-      "symbols": [
-        "·"
-      ]
+      "symbols": ["·"]
     },
     {
       "associativity": "left",
       "precedence": 54,
-      "symbols": [
-        "**",
-        "⊠",
-        "⧢"
-      ]
+      "symbols": ["**", "⊠", "⧢"]
     },
     {
       "associativity": "right",
       "precedence": 35,
-      "symbols": [
-        "!=",
-        "<",
-        "<=",
-        "=!=",
-        "==",
-        "===",
-        ">",
-        ">=",
-        "?"
-      ]
+      "symbols": ["!=", "<", "<=", "=!=", "==", "===", ">", ">=", "?"]
     },
     {
       "associativity": "left",
       "precedence": 58,
-      "symbols": [
-        "%",
-        "*",
-        "/",
-        "//"
-      ]
+      "symbols": ["%", "*", "/", "//"]
     },
     {
       "associativity": "right",
       "precedence": 39,
-      "symbols": [
-        ":"
-      ]
+      "symbols": [":"]
     }
   ],
   "postfix": [
     {
       "precedence": 64,
-      "symbols": [
-        "(*)"
-      ]
+      "symbols": ["(*)"]
     },
     {
       "precedence": 68,
-      "symbols": [
-        "^*",
-        "^~",
-        "_*",
-        "_~",
-        "~"
-      ]
+      "symbols": ["^*", "^~", "_*", "_~", "~"]
     },
     {
       "precedence": 72,
-      "symbols": [
-        "!",
-        "^!",
-        "_!"
-      ]
+      "symbols": ["!", "^!", "_!"]
     }
   ],
   "unary": [
     {
       "binary": true,
       "precedence": 22,
-      "symbols": [
-        "<==="
-      ]
+      "symbols": ["<==="]
     },
     {
       "binary": true,
       "precedence": 26,
-      "symbols": [
-        "<=="
-      ]
+      "symbols": ["<=="]
     },
     {
       "binary": true,
       "precedence": 58,
-      "symbols": [
-        "*"
-      ]
+      "symbols": ["*"]
     },
     {
       "binary": true,
       "precedence": 10,
-      "symbols": [
-        ","
-      ]
+      "symbols": [","]
     },
     {
       "binary": false,
@@ -330,56 +243,37 @@
     {
       "binary": true,
       "precedence": 28,
-      "symbols": [
-        "??"
-      ]
+      "symbols": ["??"]
     },
     {
       "binary": true,
       "precedence": 61,
-      "symbols": [
-        "#"
-      ]
+      "symbols": ["#"]
     },
     {
       "binary": false,
       "precedence": 34,
-      "symbols": [
-        "not"
-      ]
+      "symbols": ["not"]
     },
     {
       "binary": true,
       "precedence": 50,
-      "symbols": [
-        "+",
-        "-"
-      ]
+      "symbols": ["+", "-"]
     },
     {
       "binary": true,
       "precedence": 18,
-      "symbols": [
-        "<<"
-      ]
+      "symbols": ["<<"]
     },
     {
       "binary": true,
       "precedence": 20,
-      "symbols": [
-        "|-"
-      ]
+      "symbols": ["|-"]
     },
     {
       "binary": true,
       "precedence": 36,
-      "symbols": [
-        "<",
-        "<=",
-        ">",
-        ">=",
-        "?"
-      ]
+      "symbols": ["<", "<=", ">", ">=", "?"]
     }
   ]
 }
