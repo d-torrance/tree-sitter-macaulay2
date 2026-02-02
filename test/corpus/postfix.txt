@@ -141,3 +141,45 @@ x~
         (parse_tree
           (token
             (identifier)))))))
+
+========================
+postfix w/ strong binary
+========================
+
+x.y_*
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (postfix
+        (parse_tree
+          (binary
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))))))
+
+======================
+postfix w/ weak binary
+======================
+
+x + y!
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (postfix
+            (parse_tree
+              (token
+                (identifier)))))))))
