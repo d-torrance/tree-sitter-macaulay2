@@ -51,7 +51,8 @@
     "tree-sitter-cli": "^0.26.3"
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "experimentalOperatorPosition": "end"
   },
   "peerDependencies": {
     "tree-sitter": "^0.25.0"
