@@ -177,7 +177,7 @@ export default grammar({
       prec.right(
         seq(
           'for',
-          field('variable', $.parse_tree),
+          field('variable', $.identifier),
           choice(
             seq('in', field('in_clause', $.parse_tree)),
             seq(
@@ -225,7 +225,7 @@ export default grammar({
               seq('else', field('alternate', $.parse_tree)),
               seq(
                 'except',
-                field('variable', $.parse_tree),
+                field('variable', $.identifier),
                 'do',
                 field('do_clause', $.parse_tree),
               ),

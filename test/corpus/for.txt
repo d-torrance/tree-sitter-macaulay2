@@ -10,9 +10,7 @@ for x do y
   (statement
     (parse_tree
       (for
-        (parse_tree
-          (token
-            (identifier)))
+        (identifier)
         (parse_tree
           (token
             (identifier)))))))
@@ -29,9 +27,7 @@ for x list y
   (statement
     (parse_tree
       (for
-        (parse_tree
-          (token
-            (identifier)))
+        (identifier)
         (parse_tree
           (token
             (identifier)))))))
@@ -48,9 +44,7 @@ for x list y do z
   (statement
     (parse_tree
       (for
-        (parse_tree
-          (token
-            (identifier)))
+        (identifier)
         (parse_tree
           (token
             (identifier)))
@@ -70,9 +64,7 @@ for x when y do z
   (statement
     (parse_tree
       (for
-        (parse_tree
-          (token
-            (identifier)))
+        (identifier)
         (parse_tree
           (token
             (identifier)))
@@ -92,9 +84,7 @@ for x when y list z
   (statement
     (parse_tree
       (for
-        (parse_tree
-          (token
-            (identifier)))
+        (identifier)
         (parse_tree
           (token
             (identifier)))
@@ -114,9 +104,7 @@ for x when y list z do w
   (statement
     (parse_tree
       (for
-        (parse_tree
-          (token
-            (identifier)))
+        (identifier)
         (parse_tree
           (token
             (identifier)))

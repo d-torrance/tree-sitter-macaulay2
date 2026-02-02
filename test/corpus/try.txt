@@ -70,9 +70,7 @@ try x except y do z
         (parse_tree
           (token
             (identifier)))
-        (parse_tree
-          (token
-            (identifier)))
+        (identifier)
         (parse_tree
           (token
             (identifier)))))))
@@ -95,9 +93,7 @@ try x then y except z do w
         (parse_tree
           (token
             (identifier)))
-        (parse_tree
-          (token
-            (identifier)))
+        (identifier)
         (parse_tree
           (token
             (identifier)))))))
@@ -191,9 +187,7 @@ try try x except y do z
             (parse_tree
               (token
                 (identifier)))
-            (parse_tree
-              (token
-                (identifier)))
+            (identifier)
             (parse_tree
               (token
                 (identifier)))))))))

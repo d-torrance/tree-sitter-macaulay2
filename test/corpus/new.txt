@@ -73,27 +73,3 @@ new x of y from z
         (parse_tree
           (token
             (identifier)))))))
-
-====================
-new-from v. for-from
-====================
-
-for new x from y do w
-
----
-
-(source_file
-  (statement
-    (parse_tree
-      (for
-        (parse_tree
-          (new
-            (parse_tree
-              (token
-                (identifier)))
-            (parse_tree
-              (token
-                (identifier)))))
-        (parse_tree
-          (token
-            (identifier)))))))
