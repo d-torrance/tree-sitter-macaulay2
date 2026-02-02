@@ -440,7 +440,7 @@ x while y list z do w
       (adjacent
         (token
           (identifier))
-        (while_do
+        (while
           (parse_tree
             (token
               (identifier)))
@@ -452,7 +452,7 @@ x while y list z do w
       (adjacent
         (token
           (identifier))
-        (while_list
+        (while
           (parse_tree
             (token
               (identifier)))
@@ -464,7 +464,7 @@ x while y list z do w
       (adjacent
         (token
           (identifier))
-        (while_list_do
+        (while
           (parse_tree
             (token
               (identifier)))

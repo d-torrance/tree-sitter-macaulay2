@@ -19,7 +19,7 @@ export default grammar({
 
     statement: ($) => seq($.parse_tree, choice(/\n+/, ';')),
 
-    // ParseTree union from parse.d
+    // ParseTree union from parse.d (w/ some simplifications)
     parse_tree: ($) =>
       choice(
         $.token,
@@ -33,9 +33,7 @@ export default grammar({
         $.quote,
         $.try,
         $.catch,
-        $.while_do,
-        $.while_list,
-        $.while_list_do,
+        $.while,
         $.for,
         $.arrow,
         $.new,
@@ -80,9 +78,7 @@ export default grammar({
               $.quote,
               $.try,
               $.catch,
-              $.while_do,
-              $.while_list,
-              $.while_list_do,
+              $.while,
               $.for,
               $.new,
             ),
@@ -181,33 +177,20 @@ export default grammar({
         ),
       ),
 
-    while_do: ($) =>
-      seq(
-        'while',
-        field('predicate', $.parse_tree),
-        'do',
-        field('do_clause', $.parse_tree),
-      ),
-
-    while_list_do: ($) =>
-      prec(
-        1,
+    while: ($) =>
+      prec.right(
         seq(
           'while',
           field('predicate', $.parse_tree),
-          'list',
-          field('list_clause', $.parse_tree),
-          'do',
-          field('do_clause', $.parse_tree),
+          choice(
+            seq('do', field('do_clause', $.parse_tree)),
+            seq(
+              'list',
+              field('list_clause', $.parse_tree),
+              optional(seq('do', field('do_clause', $.parse_tree))),
+            ),
+          ),
         ),
-      ),
-
-    while_list: ($) =>
-      seq(
-        'while',
-        field('predicate', $.parse_tree),
-        'list',
-        field('predicate', $.parse_tree),
       ),
 
     for: ($) =>
