@@ -23,7 +23,7 @@ global x
 (source_file
   (statement
     (parse_tree
-      (global_quote
+      (quote
         (identifier)))))
 
 =====
@@ -37,7 +37,7 @@ local x
 (source_file
   (statement
     (parse_tree
-      (local_quote
+      (quote
         (identifier)))))
 
 ===========
@@ -51,7 +51,7 @@ threadLocal x
 (source_file
   (statement
     (parse_tree
-      (thread_quote
+      (quote
         (identifier)))))
 
 ==============
@@ -65,5 +65,5 @@ threadVariable x
 (source_file
   (statement
     (parse_tree
-      (thread_quote
+      (quote
         (identifier)))))

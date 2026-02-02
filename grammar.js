@@ -31,9 +31,6 @@ export default grammar({
         $.empty_parentheses,
         $.if,
         $.quote,
-        $.global_quote,
-        $.thread_quote,
-        $.local_quote,
         $.try_do,
         $.try_then_do,
         $.try_then_else,
@@ -74,15 +71,7 @@ export default grammar({
         seq(
           field(
             'lhs',
-            choice(
-              $.token,
-              $.parentheses,
-              $.empty_parentheses,
-              $.quote,
-              $.global_quote,
-              $.thread_quote,
-              $.local_quote,
-            ),
+            choice($.token, $.parentheses, $.empty_parentheses, $.quote),
           ),
           field(
             'rhs',
@@ -94,9 +83,6 @@ export default grammar({
               $.unary_only,
               $.if,
               $.quote,
-              $.global_quote,
-              $.thread_quote,
-              $.local_quote,
               $.try_do,
               $.try_then_do,
               $.try_then_else,
@@ -258,14 +244,11 @@ export default grammar({
         ),
       ),
 
-    quote: ($) => seq('symbol', field('rhs', $.identifier)),
-
-    global_quote: ($) => seq('global', field('rhs', $.identifier)),
-
-    thread_quote: ($) =>
-      seq(choice('threadLocal', 'threadVariable'), field('rhs', $.identifier)),
-
-    local_quote: ($) => seq('local', field('rhs', $.identifier)),
+    quote: ($) =>
+      seq(
+        choice('symbol', 'global', 'threadLocal', 'threadVariable', 'local'),
+        field('rhs', $.identifier),
+      ),
 
     if: ($) =>
       prec.right(

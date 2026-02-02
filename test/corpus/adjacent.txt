@@ -200,7 +200,7 @@ global x global y
   (statement
     (parse_tree
       (adjacent
-        (global_quote
+        (quote
           (identifier))
         (token
           (identifier)))))
@@ -209,14 +209,14 @@ global x global y
       (adjacent
         (token
           (identifier))
-        (global_quote
+        (quote
           (identifier)))))
   (statement
     (parse_tree
       (adjacent
-        (global_quote
+        (quote
           (identifier))
-        (global_quote
+        (quote
           (identifier))))))
 
 =======================
@@ -233,7 +233,7 @@ local x local y
   (statement
     (parse_tree
       (adjacent
-        (local_quote
+        (quote
           (identifier))
         (token
           (identifier)))))
@@ -242,14 +242,14 @@ local x local y
       (adjacent
         (token
           (identifier))
-        (local_quote
+        (quote
           (identifier)))))
   (statement
     (parse_tree
       (adjacent
-        (local_quote
+        (quote
           (identifier))
-        (local_quote
+        (quote
           (identifier))))))
 
 ========================
@@ -269,7 +269,7 @@ threadVariable x threadVariable y
   (statement
     (parse_tree
       (adjacent
-        (thread_quote
+        (quote
           (identifier))
         (token
           (identifier)))))
@@ -278,19 +278,19 @@ threadVariable x threadVariable y
       (adjacent
         (token
           (identifier))
-        (thread_quote
+        (quote
           (identifier)))))
   (statement
     (parse_tree
       (adjacent
-        (thread_quote
+        (quote
           (identifier))
-        (thread_quote
+        (quote
           (identifier)))))
   (statement
     (parse_tree
       (adjacent
-        (thread_quote
+        (quote
           (identifier))
         (token
           (identifier)))))
@@ -299,14 +299,14 @@ threadVariable x threadVariable y
       (adjacent
         (token
           (identifier))
-        (thread_quote
+        (quote
           (identifier)))))
   (statement
     (parse_tree
       (adjacent
-        (thread_quote
+        (quote
           (identifier))
-        (thread_quote
+        (quote
           (identifier))))))
 
 ===
