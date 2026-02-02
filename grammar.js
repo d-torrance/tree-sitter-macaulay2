@@ -32,7 +32,6 @@ export default grammar({
         $.if,
         $.quote,
         $.try,
-        $.catch,
         $.while,
         $.for,
         $.arrow,
@@ -49,7 +48,6 @@ export default grammar({
     // - unary
     // - if
     // - try
-    // - catch
     // - while
     // - for
     // - new
@@ -77,7 +75,6 @@ export default grammar({
               $.if,
               $.quote,
               $.try,
-              $.catch,
               $.while,
               $.for,
               $.new,
@@ -253,8 +250,6 @@ export default grammar({
           ),
         ),
       ),
-
-    catch: ($) => seq('catch', field('primary', $.parse_tree)),
 
     new: ($) =>
       prec.right(

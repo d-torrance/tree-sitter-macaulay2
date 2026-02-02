@@ -419,7 +419,7 @@ x catch y
       (adjacent
         (token
           (identifier))
-        (catch
+        (unary_only
           (parse_tree
             (token
               (identifier))))))))

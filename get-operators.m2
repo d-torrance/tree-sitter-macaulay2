@@ -7,7 +7,6 @@ keywords = unique select(values Core.Dictionary,
 	    -- special keywords
 	    symbol ->,
 	    symbol ;,
-	    symbol catch,
 	    symbol do,
 	    symbol else,
 	    symbol except,

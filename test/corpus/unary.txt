@@ -507,3 +507,20 @@ trap x
           (parse_tree
             (token
               (identifier))))))))
+
+=====
+catch
+=====
+
+catch x
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (unary
+        (unary_only
+          (parse_tree
+            (token
+              (identifier))))))))

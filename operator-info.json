@@ -134,6 +134,7 @@
   "unary_only": {
     "break": 12,
     "breakpoint": 12,
+    "catch": 12,
     "continue": 12,
     "elapsedTime": 12,
     "elapsedTiming": 12,
