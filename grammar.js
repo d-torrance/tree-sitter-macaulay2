@@ -31,11 +31,6 @@ export default grammar({
         $.empty_parentheses,
         $.if,
         $.quote,
-        $.try_do,
-        $.try_then_do,
-        $.try_then_else,
-        $.try_then,
-        $.try_else,
         $.try,
         $.catch,
         $.while_do,
@@ -83,11 +78,6 @@ export default grammar({
               $.unary_only,
               $.if,
               $.quote,
-              $.try_do,
-              $.try_then_do,
-              $.try_then_else,
-              $.try_then,
-              $.try_else,
               $.try,
               $.catch,
               $.while_do,
@@ -261,68 +251,23 @@ export default grammar({
         ),
       ),
 
-    try: ($) => seq('try', field('primary', $.parse_tree)),
-
-    try_then: ($) =>
-      prec(
-        1,
+    try: ($) =>
+      prec.right(
         seq(
           'try',
           field('primary', $.parse_tree),
-          'then',
-          field('sequel', $.parse_tree),
-        ),
-      ),
-
-    try_else: ($) =>
-      prec(
-        1,
-        seq(
-          'try',
-          field('primary', $.parse_tree),
-          'else',
-          field('alternate', $.parse_tree),
-        ),
-      ),
-
-    try_then_else: ($) =>
-      prec(
-        2,
-        seq(
-          'try',
-          field('primary', $.parse_tree),
-          'then',
-          field('sequel', $.parse_tree),
-          'else',
-          field('alternate', $.parse_tree),
-        ),
-      ),
-
-    try_do: ($) =>
-      prec(
-        1,
-        seq(
-          'try',
-          field('primary', $.parse_tree),
-          'except',
-          field('variable', $.parse_tree),
-          'do',
-          field('do_clause', $.parse_tree),
-        ),
-      ),
-
-    try_then_do: ($) =>
-      prec(
-        2,
-        seq(
-          'try',
-          field('primary', $.parse_tree),
-          'then',
-          field('sequel', $.parse_tree),
-          'except',
-          field('variable', $.parse_tree),
-          'do',
-          field('do_clause', $.parse_tree),
+          optional(seq('then', field('sequel', $.parse_tree))),
+          optional(
+            choice(
+              seq('else', field('alternate', $.parse_tree)),
+              seq(
+                'except',
+                field('variable', $.parse_tree),
+                'do',
+                field('do_clause', $.parse_tree),
+              ),
+            ),
+          ),
         ),
       ),
 

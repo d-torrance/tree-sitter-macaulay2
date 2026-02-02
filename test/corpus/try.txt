@@ -25,7 +25,7 @@ try x then y
 (source_file
   (statement
     (parse_tree
-      (try_then
+      (try
         (parse_tree
           (token
             (identifier)))
@@ -44,7 +44,7 @@ try x then y else z
 (source_file
   (statement
     (parse_tree
-      (try_then_else
+      (try
         (parse_tree
           (token
             (identifier)))
@@ -66,7 +66,7 @@ try x except y do z
 (source_file
   (statement
     (parse_tree
-      (try_do
+      (try
         (parse_tree
           (token
             (identifier)))
@@ -88,7 +88,7 @@ try x then y except z do w
 (source_file
   (statement
     (parse_tree
-      (try_then_do
+      (try
         (parse_tree
           (token
             (identifier)))
@@ -115,7 +115,7 @@ try try x then y else z
     (parse_tree
       (try
         (parse_tree
-          (try_then_else
+          (try
             (parse_tree
               (token
                 (identifier)))
@@ -139,7 +139,7 @@ if try x then y else z then y
     (parse_tree
       (if
         (parse_tree
-          (try_then_else
+          (try
             (parse_tree
               (token
                 (identifier)))
@@ -166,7 +166,7 @@ try try x else y
     (parse_tree
       (try
         (parse_tree
-          (try_else
+          (try
             (parse_tree
               (token
                 (identifier)))
@@ -187,7 +187,7 @@ try try x except y do z
     (parse_tree
       (try
         (parse_tree
-          (try_do
+          (try
             (parse_tree
               (token
                 (identifier)))
@@ -235,7 +235,7 @@ try try x then y else z
     (parse_tree
       (try
         (parse_tree
-          (try_then_else
+          (try
             (parse_tree
               (token
                 (identifier)))

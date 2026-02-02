@@ -337,7 +337,7 @@ x try y then z except a do b
       (adjacent
         (token
           (identifier))
-        (try_then
+        (try
           (parse_tree
             (token
               (identifier)))
@@ -349,7 +349,7 @@ x try y then z except a do b
       (adjacent
         (token
           (identifier))
-        (try_else
+        (try
           (parse_tree
             (token
               (identifier)))
@@ -361,22 +361,7 @@ x try y then z except a do b
       (adjacent
         (token
           (identifier))
-        (try_then_else
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))))))
-  (statement
-    (parse_tree
-      (adjacent
-        (token
-          (identifier))
-        (try_do
+        (try
           (parse_tree
             (token
               (identifier)))
@@ -391,7 +376,22 @@ x try y then z except a do b
       (adjacent
         (token
           (identifier))
-        (try_then_do
+        (try
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier)))))))
+  (statement
+    (parse_tree
+      (adjacent
+        (token
+          (identifier))
+        (try
           (parse_tree
             (token
               (identifier)))
