@@ -9,6 +9,10 @@
 
 import operator_info from './operator-info.json' with { type: 'json' };
 
+const maybeChoice = (symbols) => {
+  return symbols.length > 1 ? choice(...symbols) : symbols[0];
+};
+
 export default grammar({
   name: 'Macaulay2',
 
@@ -80,12 +84,7 @@ export default grammar({
         ...operator_info.binary.map((group) => {
           const rule = seq(
             field('lhs', $.parse_tree),
-            field(
-              'operator',
-              group.symbols.length > 1
-                ? choice(...group.symbols)
-                : group.symbols[0],
-            ),
+            field('operator', maybeChoice(group.symbols)),
             field('rhs', $.parse_tree),
           );
           switch (group.associativity) {
@@ -107,12 +106,7 @@ export default grammar({
             return prec.right(
               group.precedence,
               seq(
-                field(
-                  'operator',
-                  group.symbols.length > 1
-                    ? choice(...group.symbols)
-                    : group.symbols[0],
-                ),
+                field('operator', maybeChoice(group.symbols)),
                 field('rhs', $.parse_tree),
               ),
             );
@@ -127,12 +121,7 @@ export default grammar({
             return prec.right(
               group.precedence,
               seq(
-                field(
-                  'operator',
-                  group.symbols.length > 1
-                    ? choice(...group.symbols)
-                    : group.symbols[0],
-                ),
+                field('operator', maybeChoice(group.symbols)),
                 field('rhs', $.parse_tree),
               ),
             );
@@ -146,12 +135,7 @@ export default grammar({
             group.precedence,
             seq(
               field('lhs', $.parse_tree),
-              field(
-                'operator',
-                group.symbols.length > 1
-                  ? choice(...group.symbols)
-                  : group.symbols[0],
-              ),
+              field('operator', maybeChoice(group.symbols)),
             ),
           );
         }),
