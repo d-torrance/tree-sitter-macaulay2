@@ -78,7 +78,7 @@ export default grammar({
     binary: ($) =>
       choice(
         ...operator_info.binary.map((group) => {
-          let rule = seq(
+          const rule = seq(
             field('lhs', $.parse_tree),
             field(
               'operator',
