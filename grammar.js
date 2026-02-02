@@ -34,7 +34,6 @@ export default grammar({
         $.try,
         $.while,
         $.for,
-        $.arrow,
         $.new,
       ),
 
@@ -53,8 +52,6 @@ export default grammar({
     // - new
     // on the rhs:
     // - unary_binary
-    // on the lhs or rhs:
-    // - arrow
 
     adjacent: ($) =>
       prec.right(
@@ -81,12 +78,6 @@ export default grammar({
             ),
           ),
         ),
-      ),
-
-    arrow: ($) =>
-      prec.right(
-        operator_info.arrow,
-        seq(field('lhs', $.parse_tree), '->', field('rhs', $.parse_tree)),
       ),
 
     binary: ($) => choice($.binary_left, $.binary_right),

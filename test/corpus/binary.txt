@@ -2014,3 +2014,55 @@ x^y^z
           (parse_tree
             (token
               (identifier))))))))
+
+=====
+arrow
+=====
+
+x -> y
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (token
+              (identifier))))))))
+
+===================
+function definition
+===================
+
+f = x -> y + z
+
+---
+
+(source_file
+  (statement
+    (parse_tree
+      (binary
+        (binary_right
+          (parse_tree
+            (token
+              (identifier)))
+          (parse_tree
+            (binary
+              (binary_right
+                (parse_tree
+                  (token
+                    (identifier)))
+                (parse_tree
+                  (binary
+                    (binary_left
+                      (parse_tree
+                        (token
+                          (identifier)))
+                      (parse_tree
+                        (token
+                          (identifier))))))))))))))

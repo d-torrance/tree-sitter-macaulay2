@@ -5,7 +5,6 @@ importFrom(Core, "getParsing")
 keywords = unique select(values Core.Dictionary,
     x -> instance(x, Keyword) and not isMember(x, {
 	    -- special keywords
-	    symbol ->,
 	    symbol ;,
 	    symbol do,
 	    symbol else,
@@ -37,7 +36,6 @@ parsingInfo = hashTable apply(keywords, k -> (k, getParsing k))
 
 operatorInfo = hashTable {
     ("adjacent", (getParsing symbol SPACE)#1),
-    ("arrow", (getParsing symbol ->)#1),
     ("binary_right", hashTable apply(
 	    select(keys parsingInfo, k -> (
 		    parsingInfo#k#0 == parsingInfo#k#1 + 1)),
