@@ -13,6 +13,52 @@ const maybeChoice = (symbols) => {
   return symbols.length > 1 ? choice(...symbols) : symbols[0];
 };
 
+const binaryRules = operator_info.binary.map((group) => {
+  return {
+    group: group,
+    rule: ($) => {
+      const rule = seq(
+        field('lhs', $.parse_tree),
+        field('operator', maybeChoice(group.symbols)),
+        field('rhs', $.parse_tree),
+      );
+      if (group.associativity == 'left') {
+        return prec.left(group.precedence, rule);
+      } else {
+        return prec.right(group.precedence, rule);
+      }
+    },
+  };
+});
+
+const unaryRules = operator_info.unary.map((group) => {
+  return {
+    group: group,
+    rule: ($) =>
+      prec.right(
+        group.precedence,
+        seq(
+          field('operator', maybeChoice(group.symbols)),
+          field('rhs', $.parse_tree),
+        ),
+      ),
+  };
+});
+
+const postfixRules = operator_info.postfix.map((group) => {
+  return {
+    group: group,
+    rule: ($) =>
+      prec.left(
+        group.precedence,
+        seq(
+          field('lhs', $.parse_tree),
+          field('operator', maybeChoice(group.symbols)),
+        ),
+      ),
+  };
+});
+
 export default grammar({
   name: 'Macaulay2',
 
@@ -79,67 +125,25 @@ export default grammar({
         ),
       ),
 
-    binary: ($) =>
-      choice(
-        ...operator_info.binary.map((group) => {
-          const rule = seq(
-            field('lhs', $.parse_tree),
-            field('operator', maybeChoice(group.symbols)),
-            field('rhs', $.parse_tree),
-          );
-          switch (group.associativity) {
-            case 'left':
-              return prec.left(group.precedence, rule);
-            case 'right':
-              return prec.right(group.precedence, rule);
-          }
-        }),
-      ),
+    binary: ($) => choice(...binaryRules.map((group) => group.rule($))),
 
     unary: ($) => choice($.unary_binary, $.unary_only),
 
     unary_binary: ($) =>
       choice(
-        ...operator_info.unary
-          .filter((group) => group.binary)
-          .map((group) => {
-            return prec.right(
-              group.precedence,
-              seq(
-                field('operator', maybeChoice(group.symbols)),
-                field('rhs', $.parse_tree),
-              ),
-            );
-          }),
+        ...unaryRules
+          .filter((group) => group.group.binary)
+          .map((group) => group.rule($)),
       ),
 
     unary_only: ($) =>
       choice(
-        ...operator_info.unary
-          .filter((group) => !group.binary)
-          .map((group) => {
-            return prec.right(
-              group.precedence,
-              seq(
-                field('operator', maybeChoice(group.symbols)),
-                field('rhs', $.parse_tree),
-              ),
-            );
-          }),
+        ...unaryRules
+          .filter((group) => !group.group.binary)
+          .map((group) => group.rule($)),
       ),
 
-    postfix: ($) =>
-      choice(
-        ...operator_info.postfix.map((group) => {
-          return prec.left(
-            group.precedence,
-            seq(
-              field('lhs', $.parse_tree),
-              field('operator', maybeChoice(group.symbols)),
-            ),
-          );
-        }),
-      ),
+    postfix: ($) => choice(...postfixRules.map((group) => group.rule($))),
 
     parentheses: ($) =>
       choice(
