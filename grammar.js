@@ -56,10 +56,7 @@ export default grammar({
       prec.right(
         operator_info.adjacent,
         seq(
-          field(
-            'lhs',
-            choice($.token, $.parentheses, $.quote),
-          ),
+          field('lhs', choice($.token, $.parentheses, $.quote)),
           field(
             'rhs',
             choice(
@@ -78,57 +75,86 @@ export default grammar({
         ),
       ),
 
-    binary: ($) => choice($.binary_left, $.binary_right),
-
-    binary_left: ($) =>
+    binary: ($) =>
       choice(
-        ...Object.entries(operator_info.binary_left).map(([op, p]) =>
-          prec.left(
-            p,
-            seq(
-              field('lhs', $.parse_tree),
-              field('operator', op),
-              field('rhs', $.parse_tree),
+        ...operator_info.binary.map((group) => {
+          let rule = seq(
+            field('lhs', $.parse_tree),
+            field(
+              'operator',
+              group.symbols.length > 1
+                ? choice(...group.symbols)
+                : group.symbols[0],
             ),
-          ),
-        ),
-      ),
-
-    binary_right: ($) =>
-      choice(
-        ...Object.entries(operator_info.binary_right).map(([op, p]) =>
-          prec.right(
-            p,
-            seq(
-              field('lhs', $.parse_tree),
-              field('operator', op),
-              field('rhs', $.parse_tree),
-            ),
-          ),
-        ),
+            field('rhs', $.parse_tree),
+          );
+          switch (group.associativity) {
+            case 'left':
+              return prec.left(group.precedence, rule);
+            case 'right':
+              return prec.right(group.precedence, rule);
+          }
+        }),
       ),
 
     unary: ($) => choice($.unary_binary, $.unary_only),
 
     unary_binary: ($) =>
       choice(
-        ...Object.entries(operator_info.unary_binary).map(([op, p]) =>
-          prec.right(p, seq(field('operator', op), field('rhs', $.parse_tree))),
-        ),
+        ...operator_info.unary
+          .filter((group) => group.binary)
+          .map((group) => {
+            return prec.right(
+              group.precedence,
+              seq(
+                field(
+                  'operator',
+                  group.symbols.length > 1
+                    ? choice(...group.symbols)
+                    : group.symbols[0],
+                ),
+                field('rhs', $.parse_tree),
+              ),
+            );
+          }),
       ),
 
     unary_only: ($) =>
       choice(
-        ...Object.entries(operator_info.unary_only).map(([op, p]) =>
-          prec.right(p, seq(field('operator', op), field('rhs', $.parse_tree))),
-        ),
+        ...operator_info.unary
+          .filter((group) => !group.binary)
+          .map((group) => {
+            return prec.right(
+              group.precedence,
+              seq(
+                field(
+                  'operator',
+                  group.symbols.length > 1
+                    ? choice(...group.symbols)
+                    : group.symbols[0],
+                ),
+                field('rhs', $.parse_tree),
+              ),
+            );
+          }),
       ),
 
     postfix: ($) =>
       choice(
-        ...Object.entries(operator_info.postfix).map(([op, p]) =>
-          prec.left(p, seq(field('lhs', $.parse_tree), field('operator', op))),
-        ),
+        ...operator_info.postfix.map((group) => {
+          return prec.left(
+            group.precedence,
+            seq(
+              field('lhs', $.parse_tree),
+              field(
+                'operator',
+                group.symbols.length > 1
+                  ? choice(...group.symbols)
+                  : group.symbols[0],
+              ),
+            ),
+          );
+        }),
       ),
 
     parentheses: ($) =>

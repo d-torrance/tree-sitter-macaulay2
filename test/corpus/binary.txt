@@ -10,13 +10,12 @@ x#y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==============
 sharp-question
@@ -30,13 +29,12 @@ x#?y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =======
 percent
@@ -50,13 +48,12 @@ x%y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =========
 ampersand
@@ -70,13 +67,12 @@ x&y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ====
 star
@@ -90,13 +86,12 @@ x*y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =========
 star-star
@@ -110,13 +105,12 @@ x**y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ====
 plus
@@ -130,13 +124,12 @@ x+y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =========
 plus-plus
@@ -150,13 +143,12 @@ x++y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====
 comma
@@ -170,13 +162,12 @@ x,y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====
 minus
@@ -190,13 +181,12 @@ x-y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===
 dot
@@ -210,13 +200,12 @@ x.y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====
 dot-dot
@@ -230,13 +219,12 @@ x..y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ============
 dot-question
@@ -250,13 +238,12 @@ x.?y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====
 slash
@@ -270,13 +257,12 @@ x/y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========
 slash-slash
@@ -290,13 +276,12 @@ x//y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =========
 less-less
@@ -310,13 +295,12 @@ x<<y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====
 at-at
@@ -330,13 +314,12 @@ x@@y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==============
 at-at-question
@@ -350,13 +333,12 @@ x@@?y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====
 power
@@ -370,13 +352,12 @@ x^y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 power-star-star
@@ -390,13 +371,12 @@ x^**y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==========
 power-less
@@ -410,13 +390,12 @@ x^<y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ================
 power-less-equal
@@ -430,13 +409,12 @@ x^<=y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =============
 power-greater
@@ -450,13 +428,12 @@ x^>y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 power-greater-equal
@@ -470,13 +447,12 @@ x^>=y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========
 power-power
@@ -490,13 +466,12 @@ x^^y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==========
 underscore
@@ -510,13 +485,12 @@ x_y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 underscore-less
@@ -530,13 +504,12 @@ x_<y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====================
 underscore-less-equal
@@ -550,13 +523,12 @@ x_<=y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==================
 underscore-greater
@@ -570,13 +542,12 @@ x_>y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ========================
 underscore-greater-equal
@@ -590,13 +561,12 @@ x_>=y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===
 bar
@@ -610,13 +580,12 @@ x|y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==============
 bar-underscore
@@ -630,13 +599,12 @@ x#y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =======
 bar-bar
@@ -650,13 +618,12 @@ x||y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ====
 cdot
@@ -670,13 +637,12 @@ x·y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========
 box-product
@@ -690,13 +656,12 @@ x⊠y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 shuffle-product
@@ -710,13 +675,12 @@ x⧢y
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==========
 not-equals
@@ -730,13 +694,12 @@ x!=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =================
 augmented-percent
@@ -750,13 +713,12 @@ x%=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 augmented-ampersand
@@ -770,13 +732,12 @@ x&=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 augmented-star-star
@@ -790,13 +751,12 @@ x**=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 augumented-star
@@ -810,13 +770,12 @@ x*=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 augmented-plus-plus
@@ -830,13 +789,12 @@ x++=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==============
 augmented-plus
@@ -850,13 +808,12 @@ x+=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 augmented-minus
@@ -870,13 +827,12 @@ x-=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ======================
 augmented-dot-dot-less
@@ -890,13 +846,12 @@ x..<=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =================
 augmented-dot-dot
@@ -910,13 +865,12 @@ x..=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====================
 augmented-slash-slash
@@ -930,13 +884,12 @@ x//=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 augmented-slash
@@ -950,13 +903,12 @@ x/=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====
 colon
@@ -970,13 +922,12 @@ x:y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========
 colon-equal
@@ -990,13 +941,12 @@ x:=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ====
 less
@@ -1010,13 +960,12 @@ x<y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==========
 left-arrow
@@ -1030,13 +979,12 @@ x<-y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 augmented-less-less
@@ -1050,13 +998,12 @@ x<<=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==========
 less-equal
@@ -1070,13 +1017,12 @@ x<=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ======================
 long-double-left-arrow
@@ -1090,13 +1036,12 @@ x<==y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========================
 long-long-double-left-arrow
@@ -1110,13 +1055,12 @@ x<===y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ====================
 long-bi-double-arrow
@@ -1130,13 +1074,12 @@ x<==>y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==============================
 augmented-long-bi-double-arrow
@@ -1150,13 +1093,12 @@ x<==>=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====
 equal
@@ -1170,13 +1112,12 @@ x=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====================
 not-equal-equal-equal
@@ -1190,13 +1131,12 @@ x=!=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========
 equal-equal
@@ -1210,13 +1150,12 @@ x==y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =================
 equal-equal-equal
@@ -1230,13 +1169,12 @@ x===y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ============================
 long-long-double-right-arrow
@@ -1250,13 +1188,12 @@ x===>y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ======================================
 augmented-long-long-double-right-arrow
@@ -1270,13 +1207,12 @@ x===>=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =======================
 long-double-right-arrow
@@ -1290,13 +1226,12 @@ x==>y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =================================
 augmented-long-double-right-arrow
@@ -1310,13 +1245,12 @@ x==>=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==================
 double-right-arrow
@@ -1330,13 +1264,12 @@ x=>y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =======
 greater
@@ -1350,13 +1283,12 @@ x>y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =============
 greater-equal
@@ -1370,13 +1302,12 @@ x>=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 greater-greater
@@ -1390,13 +1321,12 @@ x>>y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =========================
 augmented-greater-greater
@@ -1410,13 +1340,12 @@ x>>=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ========
 question
@@ -1430,13 +1359,12 @@ x?y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =================
 question-question
@@ -1450,13 +1378,12 @@ x??y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===========================
 augmented-question-question
@@ -1470,13 +1397,12 @@ x??=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===
 at
@@ -1490,13 +1416,12 @@ x@y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ============
 augmented-at
@@ -1510,13 +1435,12 @@ x@=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 augmented-at-at
@@ -1530,13 +1454,12 @@ x@@=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ========================
 augmented-at-at-question
@@ -1550,13 +1473,12 @@ x@@?=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =========
 backslash
@@ -1570,13 +1492,12 @@ x\y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 augmented-backslash
@@ -1590,13 +1511,12 @@ x\=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 backslash-backslash
@@ -1610,13 +1530,12 @@ x\\y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =============================
 augmented-backslash-backslash
@@ -1630,13 +1549,12 @@ x\\=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =========================
 augmented-power-star-star
@@ -1650,13 +1568,12 @@ x^**=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===============
 augmented-power
@@ -1670,13 +1587,12 @@ x^=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====================
 augmented-power-power
@@ -1690,13 +1606,12 @@ x^^=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ====================
 augmented-underscore
@@ -1710,13 +1625,12 @@ x_=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =========
 deduction
@@ -1730,13 +1644,12 @@ x|-y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 augmented-deduction
@@ -1750,13 +1663,12 @@ x|-=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =============
 augmented-bar
@@ -1770,13 +1682,12 @@ x|=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ========================
 augmented-bar-underscore
@@ -1790,13 +1701,12 @@ x|_=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =================
 augmented-bar-bar
@@ -1810,13 +1720,12 @@ x||=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ==============
 augmented-cdot
@@ -1830,13 +1739,12 @@ x·=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====================
 augmented-box-product
@@ -1850,13 +1758,12 @@ x⊠=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =========================
 augmented-shuffle-product
@@ -1870,13 +1777,12 @@ x⧢=y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===
 and
@@ -1890,13 +1796,12 @@ x and y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===
 or
@@ -1910,13 +1815,12 @@ x or y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===
 xor
@@ -1930,13 +1834,12 @@ x xor y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 order of operations
@@ -1953,67 +1856,59 @@ x^y^z
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (binary
-              (binary_left
-                (parse_tree
-                  (token
-                    (identifier)))
-                (parse_tree
-                  (token
-                    (identifier))))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (binary
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier))))))))
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (binary
-              (binary_right
-                (parse_tree
-                  (token
-                    (identifier)))
-                (parse_tree
-                  (token
-                    (identifier))))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (binary
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier))))))))
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (binary
-              (binary_left
-                (parse_tree
-                  (token
-                    (identifier)))
-                (parse_tree
-                  (token
-                    (identifier))))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (binary
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier))))))))
   (statement
     (parse_tree
       (binary
-        (binary_left
-          (parse_tree
-            (binary
-              (binary_left
-                (parse_tree
-                  (token
-                    (identifier)))
-                (parse_tree
-                  (token
-                    (identifier))))))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (binary
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (token
+                (identifier)))))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 =====
 arrow
@@ -2027,13 +1922,12 @@ x -> y
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (token
+            (identifier)))))))
 
 ===================
 function definition
@@ -2047,22 +1941,19 @@ f = x -> y + z
   (statement
     (parse_tree
       (binary
-        (binary_right
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (binary
-              (binary_right
+        (parse_tree
+          (token
+            (identifier)))
+        (parse_tree
+          (binary
+            (parse_tree
+              (token
+                (identifier)))
+            (parse_tree
+              (binary
                 (parse_tree
                   (token
                     (identifier)))
                 (parse_tree
-                  (binary
-                    (binary_left
-                      (parse_tree
-                        (token
-                          (identifier)))
-                      (parse_tree
-                        (token
-                          (identifier))))))))))))))
+                  (token
+                    (identifier)))))))))))

@@ -32,30 +32,41 @@ keywords = unique select(values Core.Dictionary,
 	    symbol <|, symbol |>
 	}))
 
-parsingInfo = hashTable apply(keywords, k -> (k, getParsing k))
+binary = new MutableHashTable
+unary = new MutableHashTable
+postfix = new MutableHashTable
+
+scan(keywords, k -> (
+	(prec, binstr, unstr) := toSequence getParsing k;
+	if prec == binstr + 1 then (
+	    binary#("right", binstr) ??= {};
+	    binary#("right", binstr) |= {k});
+	if prec == binstr then (
+	    binary#("left", binstr) ??= {};
+	    binary#("left", binstr) |= {k});
+	if binstr != -1 and unstr != -1 then (
+	    unary#(true, unstr) ??= {};
+	    unary#(true, unstr) |= {k});
+	if binstr == -1 and unstr != -1 then (
+	    unary#(false, unstr) ??= {};
+	    unary#(false, unstr) |= {k});
+	if binstr == -1 and unstr == -1 then (
+	    postfix#prec ??= {};
+	    postfix#prec |= {k})))
 
 operatorInfo = hashTable {
-    ("adjacent", (getParsing symbol SPACE)#1),
-    ("binary_right", hashTable apply(
-	    select(keys parsingInfo, k -> (
-		    parsingInfo#k#0 == parsingInfo#k#1 + 1)),
-	    k -> (k, parsingInfo#k#1))),
-    ("binary_left", hashTable apply(
-	    select(keys parsingInfo, k -> (
-		    parsingInfo#k#0 == parsingInfo#k#1)),
-	    k -> (k, parsingInfo#k#1))),
-    ("unary_binary", hashTable apply(
-	    select(keys parsingInfo, k -> (
-		    parsingInfo#k#1 != -1 and parsingInfo#k#2 != -1)),
-	    k -> (k, parsingInfo#k#2))),
-    ("unary_only", hashTable apply(
-	    select(keys parsingInfo, k -> (
-		    parsingInfo#k#1 == -1 and parsingInfo#k#2 != -1)),
-	    k -> (k, parsingInfo#k#2))),
-    ("postfix", hashTable apply(
-	    select(keys parsingInfo, k -> (
-		    parsingInfo#k#1 == -1 and parsingInfo#k#2 == -1)),
-	    k -> (k, parsingInfo#k#0)))}
+    "adjacent" => (getParsing symbol SPACE)#1,
+    "binary" => apply(keys binary, (assoc, prec) -> hashTable {
+	    "associativity" => assoc,
+	    "precedence" => prec,
+	    "symbols" => sort binary#(assoc, prec)}),
+    "unary" => apply(keys unary, (bin, prec) -> hashTable {
+	    "binary" => bin,
+	    "precedence" => prec,
+	    "symbols" => sort unary#(bin, prec)}),
+    "postfix" => apply(keys postfix, prec -> hashTable {
+	    "precedence" => prec,
+	    "symbols" => sort postfix#prec})}
 
 f = openOut "operator-info.json"
 f << toJSON(operatorInfo, Indent => 2, Sort => true) << endl << close
