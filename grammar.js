@@ -143,26 +143,18 @@ export default grammar({
 
     parentheses: ($) =>
       choice(
-        seq(
-          field('left', '['),
-          optional(field('contents', $.parse_tree)),
-          field('right', ']'),
-        ),
-        seq(
-          field('left', '<|'),
-          optional(field('contents', $.parse_tree)),
-          field('right', '|>'),
-        ),
-        seq(
-          field('left', '('),
-          optional(field('contents', $.parse_tree)),
-          field('right', ')'),
-        ),
-        seq(
-          field('left', '{'),
-          optional(field('contents', $.parse_tree)),
-          field('right', '}'),
-        ),
+        ...[
+          ['[', ']'],
+          ['<|', '|>'],
+          ['(', ')'],
+          ['{', '}'],
+        ].map(([left, right]) => {
+          return seq(
+            field('left', left),
+            optional(field('contents', $.parse_tree)),
+            field('right', right),
+          );
+        }),
       ),
 
     while: ($) =>
