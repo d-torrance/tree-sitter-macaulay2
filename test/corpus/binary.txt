@@ -9,7 +9,7 @@ x#y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -28,7 +28,7 @@ x#?y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -199,7 +199,7 @@ x.y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -237,7 +237,7 @@ x.?y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -313,7 +313,7 @@ x@@y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -332,7 +332,7 @@ x@@?y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -351,7 +351,7 @@ x^y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -370,7 +370,7 @@ x^**y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -389,7 +389,7 @@ x^<y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -408,7 +408,7 @@ x^<=y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -427,7 +427,7 @@ x^>y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -446,7 +446,7 @@ x^>=y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -484,7 +484,7 @@ x_y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -503,7 +503,7 @@ x_<y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -522,7 +522,7 @@ x_<=y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -541,7 +541,7 @@ x_>y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -560,7 +560,7 @@ x_>=y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -598,7 +598,7 @@ x#y
 (source_file
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
           (token
             (identifier)))
@@ -1897,9 +1897,9 @@ x^y^z
                 (identifier))))))))
   (statement
     (parse_tree
-      (binary
+      (strong_binary
         (parse_tree
-          (binary
+          (strong_binary
             (parse_tree
               (token
                 (identifier)))

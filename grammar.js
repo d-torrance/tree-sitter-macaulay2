@@ -74,6 +74,7 @@ export default grammar({
       choice(
         $.token,
         $.adjacent,
+        $.strong_binary,
         $.binary,
         $.unary,
         $.postfix,
@@ -125,7 +126,19 @@ export default grammar({
         ),
       ),
 
-    binary: ($) => choice(...binaryRules.map((group) => group.rule($))),
+    strong_binary: ($) =>
+      choice(
+        ...binaryRules
+          .filter((group) => group.group.precedence > operator_info.adjacent)
+          .map((group) => group.rule($)),
+      ),
+
+    binary: ($) =>
+      choice(
+        ...binaryRules
+          .filter((group) => group.group.precedence < operator_info.adjacent)
+          .map((group) => group.rule($)),
+      ),
 
     unary: ($) => choice($.unary_binary, $.unary_only),
 

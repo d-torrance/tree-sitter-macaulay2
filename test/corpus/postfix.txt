@@ -155,7 +155,7 @@ x.y_*
     (parse_tree
       (postfix
         (parse_tree
-          (binary
+          (strong_binary
             (parse_tree
               (token
                 (identifier)))
