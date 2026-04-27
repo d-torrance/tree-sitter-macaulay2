@@ -1,8 +1,8 @@
 # Macaulay2 Expression Grammar
 
-EBNF description of the Macaulay2 expression grammar, organized as a
-three-tier precedence hierarchy. This matches the structure of Macaulay2's
-internal Pratt parser and is the basis for the tree-sitter grammar.
+EBNF description of the Macaulay2 expression grammar. This matches the
+semantics of Macaulay2's internal Pratt parser and can serve as a reference
+for writing any Macaulay2 parser.
 
 ## Lexical Rules
 
@@ -100,19 +100,7 @@ Note: `count` (`#`) sits at the same precedence level as adjacent.
 It is unary prefix when no left operand is present; binary element-access (at a
 higher level) when preceded by an expression.
 
-## Grammar (Tiered EBNF)
-
-The grammar has three tiers. An identifier reduces into exactly one type
-(`strong_expr`) with no branching — the property that keeps the parse table small.
-
-```ebnf
-  token  →  strong_expr  →  adj_expr  →  expression
-                ↑                ↑              ↑
-         element-access      adjacent      weak binary /
-         composition         (no symbol)   unary prefix /
-         postfix ops                       if / try / while /
-                                           for / new
-```
+## Grammar
 
 ### Top Level
 
@@ -124,48 +112,184 @@ statement   ::= expression (newline+ | ";")
 
 ---
 
-### Tier 1 — `strong_expr`
+### `expression`
 
-High-precedence operators: **element-access**, **composition**, and all
-**postfix** operators. These bind more tightly than function application.
+The general expression type — a flat union of all forms. The **adjacent**
+rule is what distinguishes M2's grammar from most other languages: function
+application is written by juxtaposition, and it sits at a _middle_ precedence
+level (between the high-precedence element-access/composition operators and
+the low-precedence arithmetic/logical operators). Macaulay2's own parser
+handles this with a Pratt parser; see the Adjacent section below for the
+disambiguation rule.
 
 ```ebnf
-strong_expr ::= token
-              | parentheses
-              | quote
-              | strong_expr strong_binary_op expression   (* element-access: left *)
-                                                          (* composition:    left *)
-              | strong_expr postfix_op                    (* shriek:         left *)
-                                                          (* sheaf:          left *)
-                                                          (* sum-of-twists:  left *)
+expression ::= token
+             | adjacent
+             | strong_binary
+             | binary
+             | unary
+             | postfix
+             | parentheses
+             | if_expr
+             | quote
+             | try_expr
+             | while_expr
+             | for_expr
+             | new_expr
 ```
 
-The LHS of a strong binary expression is always `strong_expr` (atoms or other
-strong expressions). The RHS is the full `expression` type, which allows
-constructs like `x . if y then z` and `x # not y`.
+---
+
+### Adjacent
+
+Adjacency (juxtaposition): function application without an explicit operator
+symbol. Right-associative, so `f g x` = `f (g x)`.
 
 ```ebnf
+adjacent ::= expression expression   (* right-associative *)
+```
+
+Two expressions written next to each other — with any amount of whitespace
+between them, including none — form an adjacent expression, provided the
+character immediately following the whitespace is not an operator symbol or
+a keyword that can only appear as an infix binary operator. This is the same
+disambiguation rule used in Macaulay2's own Pratt parser, where adjacency is
+encoded as a SPACE token with left-binding-power 61.
+
+The rule for whether adjacency applies is determined by the first
+non-whitespace character after the left expression:
+
+| Next character                                 | Adjacent?                                                                                                                                            |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Letter `[a-zA-Z]`                              | Yes, **unless** the full word is a binary-only keyword: `and`, `or`, `xor`, `do`, `list`, `then`, `else`, `of`, `from`, `in`, `to`, `when`, `except` |
+| Digit `[0-9]`                                  | Yes                                                                                                                                                  |
+| `"`                                            | Yes                                                                                                                                                  |
+| `(`                                            | Yes, unless followed by `*)` (which is the postfix **sum-of-twists** operator)                                                                       |
+| `[` or `{`                                     | Yes                                                                                                                                                  |
+| Operator symbol, newline, `;`, closing bracket | No                                                                                                                                                   |
+
+Whitespace is optional: `f(x)` and `QQ[x]` are adjacent expressions with no
+space between the parts, equivalent to `f (x)` and `QQ [x]`.
+
+---
+
+### Strong Binary
+
+High-precedence binary operators (**element-access** and **composition**
+from the Binary Operators table). These bind more tightly than adjacent.
+
+```ebnf
+strong_binary ::= expression strong_binary_op expression   (* element-access: left *)
+                                                           (* composition:    left *)
+
 strong_binary_op ::= (* element-access *)
                      "#" | "#?" | "." | ".?" | "^" | "^**"
                    | "^<" | "^<=" | "^>" | "^>="
                    | "_" | "_<" | "_<=" | "_>" | "_>=" | "|_"
                    | (* composition *)
                      "@@" | "@@?"
+```
+
+---
+
+### Binary
+
+All binary operators with lower precedence than adjacent (the rows below
+**adjacent** in the Binary Operators table).
+
+```ebnf
+binary ::= expression weak_binary_op expression   (* see Binary Operators table *)
+
+weak_binary_op ::= (* direct-sum *)             "@"
+                 | (* multiplicative *)         "%" | "*" | "/" | "//"
+                 | (* quotient *)               "\" | "\\"
+                 | (* tensor *)                 "**" | "⊠" | "⧢"
+                 | (* cdot *)                   "·"
+                 | (* additive *)               "+" | "++" | "-"
+                 | (* range *)                  ".." | "..<"
+                 | (* intersection *)           "&"
+                 | (* exterior-power *)         "^^"
+                 | (* union *)                  "|"
+                 | (* coercion *)               ":"
+                 | (* vertical-concatenation *) "||"
+                 | (* comparison *)             "!=" | "<" | "<=" | "=!=" | "==" | "===" | ">" | ">=" | "?"
+                 | (* and *)                    "and"
+                 | (* xor *)                    "xor"
+                 | (* or *)                     "??" | "or"
+                 | (* implication *)            "<==" | "==>"
+                 | (* biconditional *)          "<==>"
+                 | (* long-implication *)       "===>" | "<==="
+                 | (* entailment *)             "|-"
+                 | (* output *)                 "<<"
+                 | (* assignment *)             "=" | ":=" | "->" | "=>" | "<-" | ">>"
+                                              | "+=" | "-=" | "*=" | "/=" | "//=" | "%="
+                                              | "**=" | "++=" | "..=" | "..<==" | "<<=" | ">>="
+                                              | "??=" | "@=" | "@@=" | "@@?=" | "\=" | "\\="
+                                              | "^=" | "^**=" | "^^=" | "_=" | "|-=" | "|="
+                                              | "|_=" | "||=" | "<==>="|  "===>="|  "==>="
+                                              | "·=" | "⊠=" | "⧢="
+                 | (* sequence *)              ","
+```
+
+Each operator has its own precedence and associativity as listed in the
+Binary Operators table. The EBNF above is deliberately ambiguous about those
+relative precedences; the table governs.
+
+---
+
+### Unary
+
+```ebnf
+unary ::= unary_prefix_op expression
+
+unary_prefix_op ::= (* count *)                "#"
+                  | (* star *)                 "*"
+                  | (* sign *)                 "+" | "-"
+                  | (* comparison-test *)      "<" | "<=" | ">" | ">=" | "?"
+                  | (* not *)                  "not"
+                  | (* null-test *)            "??"
+                  | (* left-implication *)     "<=="
+                  | (* long-left-implication *) "<==="
+                  | (* deduction *)            "|-"
+                  | (* output *)               "<<"
+                  | (* control-flow *)         "break" | "breakpoint" | "catch" | "continue"
+                                             | "elapsedTime" | "elapsedTiming" | "profile"
+                                             | "return" | "shield" | "step" | "TEST"
+                                             | "throw" | "time" | "timing" | "trap"
+                  | (* comma *)               ","
+```
+
+---
+
+### Postfix
+
+```ebnf
+postfix ::= expression postfix_op
 
 postfix_op ::= (* shriek *)        "!" | "^!" | "_!"
              | (* sheaf *)         "^*" | "^~" | "_*" | "_~" | "~"
              | (* sum-of-twists *) "(*)"
 ```
 
-**Atoms** (the base cases of `strong_expr`):
+---
+
+### Atoms
 
 ```ebnf
 token ::= identifier | string | integer | float
 
-parentheses ::= "(" expression? ")"
-              | "[" expression? "]"
-              | "{" expression? "}"
-              | "<|" expression? "|>"
+parentheses ::= "(" paren_contents? ")"
+              | "[" paren_contents? "]"
+              | "{" paren_contents? "}"
+              | "<|" paren_contents? "|>"
+
+paren_contents ::= expression
+                 | semicolon_sequence
+
+(* ; inside brackets is a sequence separator, not a statement terminator.
+   The trailing expression after the last ; may be absent, corresponding to
+   M2's "dummy" token: (foo;) evaluates foo and discards the result. *)
+semicolon_sequence ::= expression (";" expression?)+
 
 quote ::= ("symbol" | "global" | "local" | "threadLocal" | "threadVariable")
           identifier
@@ -173,109 +297,7 @@ quote ::= ("symbol" | "global" | "local" | "threadLocal" | "threadVariable")
 
 ---
 
-### Tier 2 — `adj_expr`
-
-Adjacency (juxtaposition): function application written without an operator symbol.
-Right-associative, so `f g x` = `f (g x)`.
-
-```ebnf
-adj_expr ::= strong_expr
-           | strong_expr adj_rhs    (* adjacent: right-associative *)
-```
-
-The LHS of an adjacent expression is always `strong_expr`. The RHS is
-restricted: **unary_binary** operators (those usable as both binary infix and
-unary prefix, such as `+`, `-`, `*`, `<<`) are excluded, so `x + y` always
-parses as `binary(+, x, y)` and never as `adjacent(x, unary(+, y))`.
-
-```ebnf
-adj_rhs ::= adj_expr           (* right-recursive; covers token, parens,
-                                  quote, strong expressions, and nested adjacent *)
-          | unary_only_expr    (* control-flow and "not" — keyword prefix *)
-          | if_expr
-          | try_expr
-          | while_expr
-          | for_expr
-          | new_expr
-```
-
-```ebnf
-unary_only_expr ::= unary_only_op expression
-
-unary_only_op   ::= (* not *)          "not"
-                  | (* control-flow *) "break" | "breakpoint" | "catch" | "continue"
-                                     | "elapsedTime" | "elapsedTiming" | "profile"
-                                     | "return" | "shield" | "step" | "TEST"
-                                     | "throw" | "time" | "timing" | "trap"
-```
-
----
-
-### Tier 3 — `expression`
-
-The general expression type (replaces `parse_tree` in Macaulay2's internal
-representation). Contains all operators at or below adjacent precedence.
-
-```ebnf
-expression ::= adj_expr
-             | expression weak_binary_op expression   (* see Binary Operators table *)
-             | unary_prefix_op expression             (* see Unary Prefix table *)
-             | unary_only_expr
-             | if_expr
-             | try_expr
-             | while_expr
-             | for_expr
-             | new_expr
-```
-
-Each `weak_binary_op` has its own precedence and associativity as listed in
-the Binary Operators table (the rows below **adjacent**). The EBNF above is
-deliberately ambiguous about those relative precedences; the table governs.
-
-```ebnf
-weak_binary_op ::= (* direct-sum *)            "@"
-                 | (* multiplicative *)        "%" | "*" | "/" | "//"
-                 | (* quotient *)              "\" | "\\"
-                 | (* tensor *)                "**" | "⊠" | "⧢"
-                 | (* cdot *)                  "·"
-                 | (* additive *)              "+" | "++" | "-"
-                 | (* range *)                 ".." | "..<"
-                 | (* intersection *)          "&"
-                 | (* exterior-power *)        "^^"
-                 | (* union *)                 "|"
-                 | (* coercion *)              ":"
-                 | (* vertical-concatenation *) "||"
-                 | (* comparison *)            "!=" | "<" | "<=" | "=!=" | "==" | "===" | ">" | ">=" | "?"
-                 | (* and *)                   "and"
-                 | (* xor *)                   "xor"
-                 | (* or *)                    "??" | "or"
-                 | (* implication *)           "<==" | "==>"
-                 | (* biconditional *)         "<==>"
-                 | (* long-implication *)      "===>" | "<==="
-                 | (* entailment *)            "|-"
-                 | (* output *)                "<<"
-                 | (* assignment *)            "=" | ":=" | "->" | "=>" | "<-" | ">>"
-                                             | "+=" | "-=" | "*=" | "/=" | "//=" | "%="
-                                             | "**=" | "++=" | "..=" | "..<==" | "<<=" | ">>="
-                                             | "??=" | "@=" | "@@=" | "@@?=" | "\=" | "\\="
-                                             | "^=" | "^**=" | "^^=" | "_=" | "|-=" | "|="
-                                             | "|_=" | "||=" | "<==>="|  "===>="|  "==>="
-                                             | "·=" | "⊠=" | "⧢="
-                 | (* sequence *)             ","
-
-unary_prefix_op ::= (* count *)               "#"
-                  | (* star *)                "*"
-                  | (* sign *)                "+" | "-"
-                  | (* comparison-test *)     "<" | "<=" | ">" | ">=" | "?"
-                  | (* null-test *)           "??"
-                  | (* left-implication *)    "<=="
-                  | (* long-left-implication *) "<==="
-                  | (* deduction *)           "|-"
-                  | (* output *)              "<<"
-                  | (* comma *)               ","
-```
-
-**Keyword expressions:**
+### Keyword Expressions
 
 ```ebnf
 if_expr ::= "if" expression "then" expression ("else" expression)?
@@ -306,6 +328,9 @@ new_expr ::= "new" expression
 **Adjacent is right-associative**: `f g x` parses as `f (g x)`. This means
 `g` is applied to `x` first, and the result is passed to `f`.
 
+**Adjacent works with or without whitespace**: `f x`, `f(x)`, and `QQ[x]`
+are all adjacent expressions.
+
 **`count` (`#`) sits at the adjacent level**: Unary `#` has the same precedence
 as adjacent. It is always unary when no left operand precedes it; when preceded
 by an expression, the `#` symbol triggers the higher-precedence
@@ -316,16 +341,13 @@ tables (e.g., `+`, `-`, `*`, `<<`, `??`). The parser disambiguates by position:
 the operator is binary when it appears between two expressions, and unary prefix
 when it appears at the start of an expression (no left operand present).
 
-**`unary_binary` excluded from `adj_rhs`**: Operators usable as both binary
-infix and unary prefix (the dual-use ones, excluding `not` and the
-control-flow keywords) are intentionally absent from the adjacent right-hand
-side. This ensures `x + y` parses as `binary(+, x, y)` rather than
-`adjacent(x, unary(+, y))`.
+**`x + y` is never adjacent**: The scanner does not emit `SPACE` before
+operator symbols, so dual-use operators like `+`, `-`, `*`, `<<` in infix
+position are always parsed as binary, never as the start of adjacent's RHS.
 
 **Strong binary RHS is `expression`**: The right-hand side of element-access
 and composition operators is the full `expression` type. This allows constructs
-like `x . if y then z` (field access with a computed key) and `x # not y`.
-Despite this permissiveness, lower-precedence constructs are not incorrectly
-absorbed: in `x # f y`, the element-access operator (high precedence) reduces
-before adjacent (lower precedence) can form, giving
-`adjacent(strong_binary(#, x, f), y)`.
+like `x . if y then z` and `x # not y`. Operator precedence prevents
+lower-precedence constructs from being incorrectly absorbed: in `x # f y`,
+element-access (higher precedence) reduces before adjacent (lower precedence)
+can form, giving `adjacent(strong_binary(#, x, f), y)`.
