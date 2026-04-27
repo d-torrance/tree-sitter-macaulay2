@@ -114,6 +114,44 @@ x ()
         (expression
           (parentheses))))))
 
+======================================
+adjacent w/ parentheses (no whitespace)
+======================================
+
+f(x)
+R = QQ[x]
+
+---
+
+(source_file
+  (statement
+    (expression
+      (adjacent
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (parentheses
+            (expression
+              (token
+                (identifier))))))))
+  (statement
+    (expression
+      (binary
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (adjacent
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (parentheses
+                (expression
+                  (token
+                    (identifier)))))))))))
+
 =================
 adjacent w/ unary
 =================

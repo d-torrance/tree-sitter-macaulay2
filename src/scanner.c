@@ -40,11 +40,9 @@ bool tree_sitter_Macaulay2_external_scanner_scan(void *payload, TSLexer *lexer,
                                                   const bool *valid_symbols) {
     if (!valid_symbols[SPACE]) return false;
 
-    // Must start with non-newline whitespace.
+    // Consume any non-newline whitespace — possibly zero characters.
+    // This allows zero-width adjacency like QQ[x] (no space between QQ and [x]).
     int32_t c = lexer->lookahead;
-    if (c != ' ' && c != '\t' && c != '\r') return false;
-
-    // Consume all non-newline whitespace; the _space token covers exactly this.
     while (c == ' ' || c == '\t' || c == '\r') {
         lexer->advance(lexer, false);
         c = lexer->lookahead;
@@ -71,8 +69,23 @@ bool tree_sitter_Macaulay2_external_scanner_scan(void *payload, TSLexer *lexer,
         return true;
     }
 
-    // Opening brackets: start a parenthesized expression.
-    if (c == '(' || c == '[' || c == '{') {
+    // '[' and '{' always start a bracket expression.
+    if (c == '[' || c == '{') {
+        lexer->result_symbol = SPACE;
+        return true;
+    }
+
+    // '(' starts a bracket expression, UNLESS the full token is the postfix
+    // operator '(*)' — in that case do not emit _space.
+    if (c == '(') {
+        lexer->advance(lexer, false);
+        if (lexer->lookahead == '*') {
+            lexer->advance(lexer, false);
+            if (lexer->lookahead == ')') {
+                return false; // '(*)' postfix — let the regular lexer handle it
+            }
+        }
+        // Regular '(' bracket: next scan restarts from mark_end (before '(').
         lexer->result_symbol = SPACE;
         return true;
     }
