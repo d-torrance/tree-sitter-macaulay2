@@ -32,34 +32,34 @@ The name in the first column is used as a reference label in the grammar rules b
 
 ### Binary Operators
 
-| Name | Assoc | Operators |
-|------|-------|-----------|
-| element-access | left | `#` `#?` `.` `.?` `^` `^**` `^<` `^<=` `^>` `^>=` `_` `_<` `_<=` `_>` `_>=` `\|_` |
-| composition | left | `@@` `@@?` |
-| *(adjacent — no symbol, see Tier 2)* | right | |
-| direct-sum | right | `@` |
-| multiplicative | left | `%` `*` `/` `//` |
-| quotient | right | `\` `\\` |
-| tensor | left | `**` `⊠` `⧢` |
-| cdot | left | `·` |
-| additive | left | `+` `++` `-` |
-| range | left | `..` `..<` |
-| intersection | left | `&` |
-| exterior-power | left | `^^` |
-| union | left | `\|` |
-| coercion | right | `:` |
-| vertical-concatenation | left | `\|\|` |
-| comparison | right | `!=` `<` `<=` `=!=` `==` `===` `>` `>=` `?` |
-| and | right | `and` |
-| xor | right | `xor` |
-| or | right | `??` `or` |
-| implication | right | `<==` `==>` |
-| biconditional | right | `<==>` |
-| long-implication | right | `<===` `===>` |
-| entailment | right | `\|-` |
-| output | left | `<<` |
-| assignment | right | `=` `:=` `->` `=>` `<-` `>>` `+=` `-=` `*=` `/=` `//=` `%=` `**=` `++=` `..=` `..<=` `<<=` `>>=` `??=` `@=` `@@=` `@@?=` `\=` `\\=` `^=` `^**=` `^^=` `_=` `\|-=` `\|=` `\|_=` `\|\|=` `<==>=` `===>=` `==>=` `·=` `⊠=` `⧢=` |
-| sequence | left | `,` |
+| Name                                 | Assoc | Operators                                                                                                                                                                                                                    |
+| ------------------------------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| element-access                       | left  | `#` `#?` `.` `.?` `^` `^**` `^<` `^<=` `^>` `^>=` `_` `_<` `_<=` `_>` `_>=` `\|_`                                                                                                                                            |
+| composition                          | left  | `@@` `@@?`                                                                                                                                                                                                                   |
+| _(adjacent — no symbol, see Tier 2)_ | right |                                                                                                                                                                                                                              |
+| direct-sum                           | right | `@`                                                                                                                                                                                                                          |
+| multiplicative                       | left  | `%` `*` `/` `//`                                                                                                                                                                                                             |
+| quotient                             | right | `\` `\\`                                                                                                                                                                                                                     |
+| tensor                               | left  | `**` `⊠` `⧢`                                                                                                                                                                                                                 |
+| cdot                                 | left  | `·`                                                                                                                                                                                                                          |
+| additive                             | left  | `+` `++` `-`                                                                                                                                                                                                                 |
+| range                                | left  | `..` `..<`                                                                                                                                                                                                                   |
+| intersection                         | left  | `&`                                                                                                                                                                                                                          |
+| exterior-power                       | left  | `^^`                                                                                                                                                                                                                         |
+| union                                | left  | `\|`                                                                                                                                                                                                                         |
+| coercion                             | right | `:`                                                                                                                                                                                                                          |
+| vertical-concatenation               | left  | `\|\|`                                                                                                                                                                                                                       |
+| comparison                           | right | `!=` `<` `<=` `=!=` `==` `===` `>` `>=` `?`                                                                                                                                                                                  |
+| and                                  | right | `and`                                                                                                                                                                                                                        |
+| xor                                  | right | `xor`                                                                                                                                                                                                                        |
+| or                                   | right | `??` `or`                                                                                                                                                                                                                    |
+| implication                          | right | `<==` `==>`                                                                                                                                                                                                                  |
+| biconditional                        | right | `<==>`                                                                                                                                                                                                                       |
+| long-implication                     | right | `<===` `===>`                                                                                                                                                                                                                |
+| entailment                           | right | `\|-`                                                                                                                                                                                                                        |
+| output                               | left  | `<<`                                                                                                                                                                                                                         |
+| assignment                           | right | `=` `:=` `->` `=>` `<-` `>>` `+=` `-=` `*=` `/=` `//=` `%=` `**=` `++=` `..=` `..<=` `<<=` `>>=` `??=` `@=` `@@=` `@@?=` `\=` `\\=` `^=` `^**=` `^^=` `_=` `\|-=` `\|=` `\|_=` `\|\|=` `<==>=` `===>=` `==>=` `·=` `⊠=` `⧢=` |
+| sequence                             | left  | `,`                                                                                                                                                                                                                          |
 
 The adjacent row marks the boundary between **strong** operators (above, prec > adjacent)
 and **weak** operators (below, prec < adjacent).
@@ -69,32 +69,32 @@ and **weak** operators (below, prec < adjacent).
 All postfix operators have higher precedence than adjacent.
 Rows are ordered from highest to lowest precedence.
 
-| Name | Operators |
-|------|-----------|
-| shriek | `!` `^!` `_!` |
-| sheaf | `^*` `^~` `_*` `_~` `~` |
-| sum-of-twists | `(*)` |
+| Name          | Operators               |
+| ------------- | ----------------------- |
+| shriek        | `!` `^!` `_!`           |
+| sheaf         | `^*` `^~` `_*` `_~` `~` |
+| sum-of-twists | `(*)`                   |
 
 ### Unary Prefix Operators
 
 Rows are ordered from highest to lowest precedence.
-Operators marked with *(also binary)* appear in both this table and the binary table;
+Operators marked with _(also binary)_ appear in both this table and the binary table;
 context (whether a left operand is present) determines which role applies.
 
-| Name | Operators |
-|------|-----------|
-| count | `#` *(also binary: element-access)* |
-| star | `*` *(also binary: multiplicative)* |
-| sign | `+` `-` *(also binary: additive)* |
-| comparison-test | `<` `<=` `>` `>=` `?` *(also binary: comparison)* |
-| not | `not` |
-| null-test | `??` *(also binary: or)* |
-| left-implication | `<==` *(also binary: implication)* |
-| long-left-implication | `<===` *(also binary: long-implication)* |
-| deduction | `\|-` *(also binary: entailment)* |
-| output | `<<` *(also binary: output)* |
-| control-flow | `break` `breakpoint` `catch` `continue` `elapsedTime` `elapsedTiming` `profile` `return` `shield` `step` `TEST` `throw` `time` `timing` `trap` |
-| comma | `,` *(also binary: sequence)* |
+| Name                  | Operators                                                                                                                                      |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| count                 | `#` _(also binary: element-access)_                                                                                                            |
+| star                  | `*` _(also binary: multiplicative)_                                                                                                            |
+| sign                  | `+` `-` _(also binary: additive)_                                                                                                              |
+| comparison-test       | `<` `<=` `>` `>=` `?` _(also binary: comparison)_                                                                                              |
+| not                   | `not`                                                                                                                                          |
+| null-test             | `??` _(also binary: or)_                                                                                                                       |
+| left-implication      | `<==` _(also binary: implication)_                                                                                                             |
+| long-left-implication | `<===` _(also binary: long-implication)_                                                                                                       |
+| deduction             | `\|-` _(also binary: entailment)_                                                                                                              |
+| output                | `<<` _(also binary: output)_                                                                                                                   |
+| control-flow          | `break` `breakpoint` `catch` `continue` `elapsedTime` `elapsedTiming` `profile` `return` `shield` `step` `TEST` `throw` `time` `timing` `trap` |
+| comma                 | `,` _(also binary: sequence)_                                                                                                                  |
 
 Note: `count` (`#`) sits at the same precedence level as adjacent.
 It is unary prefix when no left operand is present; binary element-access (at a
@@ -268,7 +268,7 @@ unary_prefix_op ::= (* count *)               "#"
                   | (* sign *)                "+" | "-"
                   | (* comparison-test *)     "<" | "<=" | ">" | ">=" | "?"
                   | (* null-test *)           "??"
-                  | (* left-implication *)    "<==" 
+                  | (* left-implication *)    "<=="
                   | (* long-left-implication *) "<==="
                   | (* deduction *)           "|-"
                   | (* output *)              "<<"
