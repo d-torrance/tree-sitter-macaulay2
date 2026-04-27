@@ -105,7 +105,7 @@ higher level) when preceded by an expression.
 The grammar has three tiers. An identifier reduces into exactly one type
 (`strong_expr`) with no branching — the property that keeps the parse table small.
 
-```
+```ebnf
   token  →  strong_expr  →  adj_expr  →  expression
                 ↑                ↑              ↑
          element-access      adjacent      weak binary /
