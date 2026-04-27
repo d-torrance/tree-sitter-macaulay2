@@ -113,3 +113,42 @@ angled brackets
         (expression
           (token
             (identifier)))))))
+
+====================
+semicolon sequences
+====================
+
+(foo;)
+(foo; bar)
+(foo; bar;)
+
+---
+
+(source_file
+  (statement
+    (expression
+      (parentheses
+        contents: (semicolon_sequence
+          (expression
+            (token
+              (identifier)))))))
+  (statement
+    (expression
+      (parentheses
+        contents: (semicolon_sequence
+          (expression
+            (token
+              (identifier)))
+          (expression
+            (token
+              (identifier)))))))
+  (statement
+    (expression
+      (parentheses
+        contents: (semicolon_sequence
+          (expression
+            (token
+              (identifier)))
+          (expression
+            (token
+              (identifier))))))))

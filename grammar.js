@@ -138,6 +138,12 @@ export default grammar({
     postfix: ($) =>
       choice(...postfixRules.map((group) => group.rule($, $.expression))),
 
+    // Inside brackets, ; is a sequence separator (not a statement terminator).
+    // The RHS of the last ; may be absent, corresponding to M2's "dummy" token,
+    // e.g. (foo;) evaluates foo and discards the result.
+    semicolon_sequence: ($) =>
+      seq($.expression, repeat1(seq(';', optional($.expression)))),
+
     parentheses: ($) =>
       choice(
         ...[
@@ -148,7 +154,9 @@ export default grammar({
         ].map(([left, right]) => {
           return seq(
             field('left', left),
-            optional(field('contents', $.expression)),
+            optional(
+              field('contents', choice($.semicolon_sequence, $.expression)),
+            ),
             field('right', right),
           );
         }),
