@@ -8,7 +8,7 @@ monomialCurveIdeal
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (identifier)))))
 
@@ -22,7 +22,7 @@ string
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (string)))))
 
@@ -36,7 +36,7 @@ string w/ escaped quotes
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (string)))))
 
@@ -53,7 +53,7 @@ baz"
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (string)))))
 
@@ -71,10 +71,9 @@ baz
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (string)))))
-
 
 =============================
 empty slash-delineated string
@@ -86,7 +85,7 @@ empty slash-delineated string
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (string)))))
 
@@ -100,7 +99,7 @@ decimal integer
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (integer)))))
 
@@ -114,7 +113,7 @@ binary integer (0b)
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (integer)))))
 
@@ -128,7 +127,7 @@ binary integer (0B)
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (integer)))))
 
@@ -142,7 +141,7 @@ octal integer (0o)
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (integer)))))
 
@@ -156,7 +155,7 @@ octal integer (0O)
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (integer)))))
 
@@ -170,7 +169,7 @@ hexadecimal integer (0x)
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (integer)))))
 
@@ -184,7 +183,7 @@ hexadecimal integer (0X)
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (integer)))))
 
@@ -204,30 +203,30 @@ floating point
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (float))))
   (statement
-    (parse_tree
+    (expression
       (token
         (float))))
   (statement
-    (parse_tree
+    (expression
       (token
         (float))))
   (statement
-    (parse_tree
+    (expression
       (token
         (float))))
   (statement
-    (parse_tree
+    (expression
       (token
         (float))))
   (statement
-    (parse_tree
+    (expression
       (token
         (float))))
   (statement
-    (parse_tree
+    (expression
       (token
         (float)))))

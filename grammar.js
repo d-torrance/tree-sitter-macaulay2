@@ -16,11 +16,11 @@ const maybeChoice = (symbols) => {
 const binaryRules = operator_info.binary.map((group) => {
   return {
     group: group,
-    rule: ($) => {
+    rule: ($, lhs, rhs) => {
       const rule = seq(
-        field('lhs', $.parse_tree),
+        field('lhs', lhs),
         field('operator', maybeChoice(group.symbols)),
-        field('rhs', $.parse_tree),
+        field('rhs', rhs),
       );
       if (group.associativity == 'left') {
         return prec.left(group.precedence, rule);
@@ -34,13 +34,10 @@ const binaryRules = operator_info.binary.map((group) => {
 const unaryRules = operator_info.unary.map((group) => {
   return {
     group: group,
-    rule: ($) =>
+    rule: ($, rhs) =>
       prec.right(
         group.precedence,
-        seq(
-          field('operator', maybeChoice(group.symbols)),
-          field('rhs', $.parse_tree),
-        ),
+        seq(field('operator', maybeChoice(group.symbols)), field('rhs', rhs)),
       ),
   };
 });
@@ -48,13 +45,10 @@ const unaryRules = operator_info.unary.map((group) => {
 const postfixRules = operator_info.postfix.map((group) => {
   return {
     group: group,
-    rule: ($) =>
+    rule: ($, lhs) =>
       prec.left(
         group.precedence,
-        seq(
-          field('lhs', $.parse_tree),
-          field('operator', maybeChoice(group.symbols)),
-        ),
+        seq(field('lhs', lhs), field('operator', maybeChoice(group.symbols))),
       ),
   };
 });
@@ -62,15 +56,21 @@ const postfixRules = operator_info.postfix.map((group) => {
 export default grammar({
   name: 'Macaulay2',
 
+  externals: ($) => [$._space],
+
   extras: ($) => [/\s/, $.comment],
 
   rules: {
-    source_file: ($) => seq(repeat($.statement), optional($.parse_tree)),
+    source_file: ($) => seq(repeat($.statement), optional($.expression)),
 
-    statement: ($) => seq($.parse_tree, choice(/\n+/, ';')),
+    statement: ($) => seq($.expression, choice(/\n+/, ';')),
 
-    // ParseTree union from parse.d (w/ some simplifications)
-    parse_tree: ($) =>
+    // Flat union of all expression forms — replaces parse_tree.
+    // Intermediate tier rules (_strong_expr, _adj_expr) were tried but caused
+    // a state explosion: hidden rule chains multiply LR items rather than
+    // sharing them, and adding strong_binary/postfix to adjacent's LHS
+    // created additional reduce-reduce conflicts on top of the original one.
+    expression: ($) =>
       choice(
         $.token,
         $.adjacent,
@@ -87,57 +87,36 @@ export default grammar({
         $.new,
       ),
 
-    // TODO:
-    // currently breaks tests on both lhs and rhs:
-    // - binary
-    // - postfix
-
-    // NOTE:
-    // due to precedence, the following will never be on the lhs:
-    // - unary
-    // - if
-    // - try
-    // - while
-    // - for
-    // - new
-    // on the rhs:
-    // - unary_binary
-
+    // Adjacent (function application by juxtaposition), prec 61, right-associative.
+    //
+    // The _space token is emitted by the external scanner (src/scanner.c) when
+    // whitespace separates two expressions in an adjacent context.  Using an
+    // explicit separator token means token → expression has exactly one
+    // reduction path, eliminating the reduce-reduce conflict that caused the
+    // 29,845-state explosion in the pure-LR approach.
+    //
+    // The scanner peeks at the character after whitespace and does NOT emit
+    // _space for operator symbols or binary-only keywords (and, or, xor, do,
+    // list, then, else, of, from, in, to, when, except), so x + y is never
+    // misread as adjacent(x, unary(+, y)).
     adjacent: ($) =>
       prec.right(
         operator_info.adjacent,
-        seq(
-          field('lhs', choice($.token, $.parentheses, $.quote)),
-          field(
-            'rhs',
-            choice(
-              $.token,
-              $.adjacent,
-              $.parentheses,
-              $.unary_only,
-              $.if,
-              $.quote,
-              $.try,
-              $.while,
-              $.for,
-              $.new,
-            ),
-          ),
-        ),
+        seq(field('lhs', $.expression), $._space, field('rhs', $.expression)),
       ),
 
     strong_binary: ($) =>
       choice(
         ...binaryRules
           .filter((group) => group.group.precedence > operator_info.adjacent)
-          .map((group) => group.rule($)),
+          .map((group) => group.rule($, $.expression, $.expression)),
       ),
 
     binary: ($) =>
       choice(
         ...binaryRules
           .filter((group) => group.group.precedence < operator_info.adjacent)
-          .map((group) => group.rule($)),
+          .map((group) => group.rule($, $.expression, $.expression)),
       ),
 
     unary: ($) => choice($.unary_binary, $.unary_only),
@@ -146,17 +125,18 @@ export default grammar({
       choice(
         ...unaryRules
           .filter((group) => group.group.binary)
-          .map((group) => group.rule($)),
+          .map((group) => group.rule($, $.expression)),
       ),
 
     unary_only: ($) =>
       choice(
         ...unaryRules
           .filter((group) => !group.group.binary)
-          .map((group) => group.rule($)),
+          .map((group) => group.rule($, $.expression)),
       ),
 
-    postfix: ($) => choice(...postfixRules.map((group) => group.rule($))),
+    postfix: ($) =>
+      choice(...postfixRules.map((group) => group.rule($, $.expression))),
 
     parentheses: ($) =>
       choice(
@@ -168,7 +148,7 @@ export default grammar({
         ].map(([left, right]) => {
           return seq(
             field('left', left),
-            optional(field('contents', $.parse_tree)),
+            optional(field('contents', $.expression)),
             field('right', right),
           );
         }),
@@ -178,13 +158,13 @@ export default grammar({
       prec.right(
         seq(
           'while',
-          field('predicate', $.parse_tree),
+          field('predicate', $.expression),
           choice(
-            seq('do', field('do_clause', $.parse_tree)),
+            seq('do', field('do_clause', $.expression)),
             seq(
               'list',
-              field('list_clause', $.parse_tree),
-              optional(seq('do', field('do_clause', $.parse_tree))),
+              field('list_clause', $.expression),
+              optional(seq('do', field('do_clause', $.expression))),
             ),
           ),
         ),
@@ -196,19 +176,19 @@ export default grammar({
           'for',
           field('variable', $.identifier),
           choice(
-            seq('in', field('in_clause', $.parse_tree)),
+            seq('in', field('in_clause', $.expression)),
             seq(
-              optional(seq('from', field('from_clause', $.parse_tree))),
-              optional(seq('to', field('to_clause', $.parse_tree))),
+              optional(seq('from', field('from_clause', $.expression))),
+              optional(seq('to', field('to_clause', $.expression))),
             ),
           ),
-          optional(seq('when', field('when_clause', $.parse_tree))),
+          optional(seq('when', field('when_clause', $.expression))),
           choice(
-            seq('do', field('do_clause', $.parse_tree)),
+            seq('do', field('do_clause', $.expression)),
             seq(
               'list',
-              field('list_clause', $.parse_tree),
-              optional(seq('do', field('do_clause', $.parse_tree))),
+              field('list_clause', $.expression),
+              optional(seq('do', field('do_clause', $.expression))),
             ),
           ),
         ),
@@ -224,10 +204,10 @@ export default grammar({
       prec.right(
         seq(
           'if',
-          field('predicate', $.parse_tree),
+          field('predicate', $.expression),
           'then',
-          field('then_clause', $.parse_tree),
-          optional(seq('else', field('else_clause', $.parse_tree))),
+          field('then_clause', $.expression),
+          optional(seq('else', field('else_clause', $.expression))),
         ),
       ),
 
@@ -235,16 +215,16 @@ export default grammar({
       prec.right(
         seq(
           'try',
-          field('primary', $.parse_tree),
-          optional(seq('then', field('sequel', $.parse_tree))),
+          field('primary', $.expression),
+          optional(seq('then', field('sequel', $.expression))),
           optional(
             choice(
-              seq('else', field('alternate', $.parse_tree)),
+              seq('else', field('alternate', $.expression)),
               seq(
                 'except',
                 field('variable', $.identifier),
                 'do',
-                field('do_clause', $.parse_tree),
+                field('do_clause', $.expression),
               ),
             ),
           ),
@@ -255,9 +235,9 @@ export default grammar({
       prec.right(
         seq(
           'new',
-          field('newclass', $.parse_tree),
-          optional(seq('of', field('newparent', $.parse_tree))),
-          optional(seq('from', field('newinitializer', $.parse_tree))),
+          field('newclass', $.expression),
+          optional(seq('of', field('newparent', $.expression))),
+          optional(seq('from', field('newinitializer', $.expression))),
         ),
       ),
 

@@ -8,7 +8,7 @@ x -- comment
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (identifier)))
     (comment)))
@@ -29,12 +29,12 @@ y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (token
         (identifier))))
   (comment)
   (statement
-    (parse_tree
+    (expression
       (token
         (identifier)))))
 
@@ -48,10 +48,12 @@ x -* comment *- y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
+        (expression
+          (token
+            (identifier)))
         (comment)
-        (token
-          (identifier))))))
+        (expression
+          (token
+            (identifier)))))))

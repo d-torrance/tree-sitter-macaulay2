@@ -8,12 +8,14 @@ f x
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (token
-          (identifier))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (token
+            (identifier)))))))
 
 ================
 nested adjacents
@@ -25,15 +27,19 @@ f g x
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (adjacent
+        (expression
           (token
-            (identifier))
-          (token
-            (identifier)))))))
+            (identifier)))
+        (expression
+          (adjacent
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier)))))))))
 
 =======================
 adjacent w/ parentheses
@@ -50,51 +56,63 @@ x ()
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (parentheses
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (parentheses
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (parentheses
-          (parse_tree
-            (token
-              (identifier))))
-        (token
-          (identifier)))))
+        (expression
+          (parentheses
+            (expression
+              (token
+                (identifier)))))
+        (expression
+          (token
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (parentheses
-          (parse_tree
-            (token
-              (identifier))))
-        (parentheses
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (parentheses
+            (expression
+              (token
+                (identifier)))))
+        (expression
+          (parentheses
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (parentheses))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (parentheses)))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (parentheses)
-        (token
-          (identifier)))))
+        (expression
+          (parentheses))
+        (expression
+          (token
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (parentheses)
-        (parentheses)))))
+        (expression
+          (parentheses))
+        (expression
+          (parentheses))))))
 
 =================
 adjacent w/ unary
@@ -106,14 +124,17 @@ x not y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (unary_only
-          (parse_tree
-            (token
-              (identifier))))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (unary
+            (unary_only
+              (expression
+                (token
+                  (identifier))))))))))
 
 ==============
 adjacent w/ if
@@ -126,32 +147,36 @@ x if y then z else w
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (if
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (if
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (if
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (if
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier)))))))))
 
 =================
 adjacent w/ quote
@@ -165,26 +190,32 @@ symbol x symbol y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (token
-          (identifier)))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (token
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (quote
-          (identifier)))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (quote
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (quote
-          (identifier))))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (quote
+            (identifier)))))))
 
 ========================
 adjacent w/ global-quote
@@ -198,26 +229,32 @@ global x global y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (token
-          (identifier)))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (token
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (quote
-          (identifier)))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (quote
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (quote
-          (identifier))))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (quote
+            (identifier)))))))
 
 =======================
 adjacent w/ local-quote
@@ -231,26 +268,32 @@ local x local y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (token
-          (identifier)))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (token
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (quote
-          (identifier)))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (quote
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (quote
-          (identifier))))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (quote
+            (identifier)))))))
 
 ========================
 adjacent w/ thread-quote
@@ -267,47 +310,59 @@ threadVariable x threadVariable y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (token
-          (identifier)))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (token
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (quote
-          (identifier)))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (quote
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (quote
-          (identifier)))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (quote
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (token
-          (identifier)))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (token
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (quote
-          (identifier)))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (quote
+            (identifier))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (quote
-          (identifier))
-        (quote
-          (identifier))))))
+        (expression
+          (quote
+            (identifier)))
+        (expression
+          (quote
+            (identifier)))))))
 
 ===
 try
@@ -324,82 +379,94 @@ x try y then z except a do b
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (try
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (try
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (try
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (try
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (try
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (try
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (try
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (try
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (try
-          (parse_tree
-            (token
-              (identifier)))
-          (identifier)
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (try
+            (expression
+              (token
+                (identifier)))
+            (identifier)
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (try
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))
-          (identifier)
-          (parse_tree
-            (token
-              (identifier))))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (try
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier)))
+            (identifier)
+            (expression
+              (token
+                (identifier)))))))))
 
 =====
 catch
@@ -411,14 +478,17 @@ x catch y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (unary_only
-          (parse_tree
-            (token
-              (identifier))))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (unary
+            (unary_only
+              (expression
+                (token
+                  (identifier))))))))))
 
 =====
 while
@@ -432,44 +502,50 @@ x while y list z do w
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (while
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (while
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (while
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (while
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier))))))))
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (while
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (while
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier)))))))))
 
 ===
 for
@@ -481,18 +557,20 @@ x for y in z do w
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (for
-          (identifier)
-          (parse_tree
-            (token
-              (identifier)))
-          (parse_tree
-            (token
-              (identifier))))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (for
+            (identifier)
+            (expression
+              (token
+                (identifier)))
+            (expression
+              (token
+                (identifier)))))))))
 
 ===
 new
@@ -504,11 +582,13 @@ x new y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (adjacent
-        (token
-          (identifier))
-        (new
-          (parse_tree
-            (token
-              (identifier))))))))
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (new
+            (expression
+              (token
+                (identifier)))))))))

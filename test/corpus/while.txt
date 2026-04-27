@@ -8,12 +8,12 @@ while x do y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (while
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -27,12 +27,12 @@ while x list y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (while
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -46,15 +46,15 @@ while x list y do z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (while
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -68,19 +68,19 @@ while while x list y do z do w
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (while
-        (parse_tree
+        (expression
           (while
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))

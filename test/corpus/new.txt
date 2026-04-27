@@ -8,9 +8,9 @@ new x
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (new
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -24,12 +24,12 @@ new x of y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (new
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -43,12 +43,12 @@ new x from y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (new
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -62,14 +62,14 @@ new x of y from z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (new
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))

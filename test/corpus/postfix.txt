@@ -8,9 +8,9 @@ x!
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -24,9 +24,9 @@ x(*)
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -40,9 +40,9 @@ x^!
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -56,9 +56,9 @@ x^*
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -72,9 +72,9 @@ x^~
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -88,9 +88,9 @@ x_!
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -104,9 +104,9 @@ x_*
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -120,9 +120,9 @@ x_~
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -136,9 +136,9 @@ x~
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -152,14 +152,14 @@ x.y_*
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (postfix
-        (parse_tree
+        (expression
           (strong_binary
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))))))))
 
@@ -173,13 +173,13 @@ x + y!
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (binary
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (postfix
-            (parse_tree
+            (expression
               (token
                 (identifier)))))))))

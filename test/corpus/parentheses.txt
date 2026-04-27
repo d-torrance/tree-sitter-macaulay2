@@ -8,7 +8,7 @@ empty parentheses
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (parentheses))))
 
 ==============
@@ -21,7 +21,7 @@ empty brackets
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (parentheses))))
 
 ============
@@ -34,7 +34,7 @@ empty braces
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (parentheses))))
 
 =====================
@@ -47,7 +47,7 @@ empty angled brackets
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (parentheses))))
 
 ===========
@@ -60,9 +60,9 @@ parentheses
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (parentheses
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -76,9 +76,9 @@ brackets
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (parentheses
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -92,9 +92,9 @@ braces
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (parentheses
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -108,8 +108,8 @@ angled brackets
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (parentheses
-        (parse_tree
+        (expression
           (token
             (identifier)))))))

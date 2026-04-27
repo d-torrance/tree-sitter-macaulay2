@@ -8,9 +8,9 @@ try x
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -24,12 +24,12 @@ try x then y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -43,15 +43,15 @@ try x then y else z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -65,13 +65,13 @@ try x except y do z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (token
             (identifier)))
         (identifier)
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -85,16 +85,16 @@ try x then y except z do w
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))
         (identifier)
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -108,17 +108,17 @@ try try x then y else z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (try
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))))))))
 
@@ -132,20 +132,20 @@ if try x then y else z then y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (if
-        (parse_tree
+        (expression
           (try
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -159,14 +159,14 @@ try try x else y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (try
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))))))))
 
@@ -180,15 +180,15 @@ try try x except y do z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (try
-            (parse_tree
+            (expression
               (token
                 (identifier)))
             (identifier)
-            (parse_tree
+            (expression
               (token
                 (identifier)))))))))
 
@@ -202,17 +202,17 @@ try if x then y else z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (if
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))))))))
 
@@ -226,16 +226,16 @@ try try x then y else z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (try
-        (parse_tree
+        (expression
           (try
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))
-            (parse_tree
+            (expression
               (token
                 (identifier)))))))))

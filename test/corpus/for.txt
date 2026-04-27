@@ -8,10 +8,10 @@ for x do y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (for
         (identifier)
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -25,10 +25,10 @@ for x list y
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (for
         (identifier)
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -42,13 +42,13 @@ for x list y do z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (for
         (identifier)
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -62,13 +62,13 @@ for x when y do z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (for
         (identifier)
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -82,13 +82,13 @@ for x when y list z
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (for
         (identifier)
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
 
@@ -102,15 +102,15 @@ for x when y list z do w
 
 (source_file
   (statement
-    (parse_tree
+    (expression
       (for
         (identifier)
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))
-        (parse_tree
+        (expression
           (token
             (identifier)))))))
