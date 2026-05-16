@@ -49,7 +49,7 @@ The name in the first column is used as a reference label in the grammar rules b
 | union                                | left  | `\|`                                                                                                                                                                                                                         |
 | coercion                             | right | `:`                                                                                                                                                                                                                          |
 | vertical-concatenation               | left  | `\|\|`                                                                                                                                                                                                                       |
-| comparison                           | right | `!=` `<` `<=` `=!=` `==` `===` `>` `>=` `?`                                                                                                                                                                                  |
+| comparison                           | right | `!=` `<` `<=` `=!=` `==` `===` `>` `>=` `?` `~`                                                                                                                                                                              |
 | and                                  | right | `and`                                                                                                                                                                                                                        |
 | xor                                  | right | `xor`                                                                                                                                                                                                                        |
 | or                                   | right | `??` `or`                                                                                                                                                                                                                    |
@@ -58,7 +58,7 @@ The name in the first column is used as a reference label in the grammar rules b
 | long-implication                     | right | `<===` `===>`                                                                                                                                                                                                                |
 | entailment                           | right | `\|-`                                                                                                                                                                                                                        |
 | output                               | left  | `<<`                                                                                                                                                                                                                         |
-| assignment                           | right | `=` `:=` `->` `=>` `<-` `>>` `+=` `-=` `*=` `/=` `//=` `%=` `**=` `++=` `..=` `..<=` `<<=` `>>=` `??=` `@=` `@@=` `@@?=` `\=` `\\=` `^=` `^**=` `^^=` `_=` `\|-=` `\|=` `\|_=` `\|\|=` `<==>=` `===>=` `==>=` `·=` `⊠=` `⧢=` |
+| assignment                           | right | `=` `:=` `->` `=>` `<-` `>>` `+=` `-=` `*=` `/=` `//=` `%=` `**=` `++=` `..=` `..<=` `<<=` `>>=` `??=` `@=` `@@=` `@@?=` `\=` `\\=` `^=` `^**=` `^^=` `_=` `\|-=` `\|=` `\|_=` `\|\|=` `~=` `<==>=` `===>=` `==>=` `·=` `⊠=` `⧢=` |
 | sequence                             | left  | `,`                                                                                                                                                                                                                          |
 
 The adjacent row marks the boundary between **strong** operators (above, prec > adjacent)
@@ -72,7 +72,7 @@ Rows are ordered from highest to lowest precedence.
 | Name          | Operators               |
 | ------------- | ----------------------- |
 | shriek        | `!` `^!` `_!`           |
-| sheaf         | `^*` `^~` `_*` `_~` `~` |
+| sheaf         | `^*` `^~` `_*` `_~`     |
 | sum-of-twists | `(*)`                   |
 
 ### Unary Prefix Operators
@@ -86,7 +86,7 @@ context (whether a left operand is present) determines which role applies.
 | count                 | `#` _(also binary: element-access)_                                                                                                            |
 | star                  | `*` _(also binary: multiplicative)_                                                                                                            |
 | sign                  | `+` `-` _(also binary: additive)_                                                                                                              |
-| comparison-test       | `<` `<=` `>` `>=` `?` _(also binary: comparison)_                                                                                              |
+| comparison-test       | `<` `<=` `>` `>=` `?` `~` _(also binary: comparison)_                                                                                          |
 | not                   | `not`                                                                                                                                          |
 | null-test             | `??` _(also binary: or)_                                                                                                                       |
 | left-implication      | `<==` _(also binary: implication)_                                                                                                             |
@@ -212,7 +212,7 @@ weak_binary_op ::= (* direct-sum *)             "@"
                  | (* union *)                  "|"
                  | (* coercion *)               ":"
                  | (* vertical-concatenation *) "||"
-                 | (* comparison *)             "!=" | "<" | "<=" | "=!=" | "==" | "===" | ">" | ">=" | "?"
+                 | (* comparison *)             "!=" | "<" | "<=" | "=!=" | "==" | "===" | ">" | ">=" | "?" | "~"
                  | (* and *)                    "and"
                  | (* xor *)                    "xor"
                  | (* or *)                     "??" | "or"
@@ -227,7 +227,7 @@ weak_binary_op ::= (* direct-sum *)             "@"
                                               | "??=" | "@=" | "@@=" | "@@?=" | "\=" | "\\="
                                               | "^=" | "^**=" | "^^=" | "_=" | "|-=" | "|="
                                               | "|_=" | "||=" | "<==>="|  "===>="|  "==>="
-                                              | "·=" | "⊠=" | "⧢="
+                                              | "·=" | "⊠=" | "⧢=" | "~="
                  | (* sequence *)              ","
 ```
 
@@ -245,7 +245,7 @@ unary ::= unary_prefix_op expression
 unary_prefix_op ::= (* count *)                "#"
                   | (* star *)                 "*"
                   | (* sign *)                 "+" | "-"
-                  | (* comparison-test *)      "<" | "<=" | ">" | ">=" | "?"
+                  | (* comparison-test *)      "<" | "<=" | ">" | ">=" | "?" | "~"
                   | (* not *)                  "not"
                   | (* null-test *)            "??"
                   | (* left-implication *)     "<=="
@@ -267,7 +267,7 @@ unary_prefix_op ::= (* count *)                "#"
 postfix ::= expression postfix_op
 
 postfix_op ::= (* shriek *)        "!" | "^!" | "_!"
-             | (* sheaf *)         "^*" | "^~" | "_*" | "_~" | "~"
+             | (* sheaf *)         "^*" | "^~" | "_*" | "_~"
              | (* sum-of-twists *) "(*)"
 ```
 
