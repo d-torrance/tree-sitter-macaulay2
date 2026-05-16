@@ -126,21 +126,6 @@ x_~
           (token
             (identifier)))))))
 
-=====
-tilde
-=====
-
-x~
-
----
-
-(source_file
-  (statement
-    (expression
-      (postfix
-        (expression
-          (token
-            (identifier)))))))
 
 ========================
 postfix w/ strong binary

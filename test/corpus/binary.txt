@@ -1841,6 +1841,25 @@ x xor y
           (token
             (identifier)))))))
 
+=====
+tilde
+=====
+
+x ~ y
+
+---
+
+(source_file
+  (statement
+    (expression
+      (binary
+        (expression
+          (token
+            (identifier)))
+        (expression
+          (token
+            (identifier)))))))
+
 ===================
 order of operations
 ===================

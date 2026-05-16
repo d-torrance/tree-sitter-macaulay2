@@ -253,6 +253,23 @@ unary deduction
             (token
               (identifier))))))))
 
+==============================
+unary tilde (bitwise negation)
+==============================
+
+~x
+
+---
+
+(source_file
+  (statement
+    (expression
+      (unary
+        (unary_binary
+          (expression
+            (token
+              (identifier))))))))
+
 =====
 break
 =====
